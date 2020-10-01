@@ -34,17 +34,12 @@ function load_vessel_interface() {
 }
 
 function load_vessel_categories (vessel_categories) {
-    const selects = document.getElementsByTagName("SELECT");
+    const selects = document.createElement("select");
 
-    for (let index=0; index < selects.length; index++) {
-        if (selects[index].className === "vessel_category") {
-            //Populate the select with the categories
-            vessel_categories.categories.forEach(item => {
-                    let option = document.createElement("option");
-                    option.text = item.category_name;
-                    return selects[index].add(option);
-                }
-            );
-        }
+    vessel_categories.categories.forEach(item => {
+        let option = document.createElement("option");
+        option.text = item.category_name;
+        return selects[index].add(option);
     }
+    );
 }
