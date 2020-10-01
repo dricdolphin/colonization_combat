@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="vessel.js"></script>
+    <script src="vessel_interface.js"></script>
+    <link rel="stylesheet" href="vessel_interface.css">
 </head>
-<body>
-
+<body onload="load_vessel_interface()">
+<div class="vessel">
+    <div class="vessel_name"><label>Vessel Name <input type="text" name="vessel_name"/></label></div>
+    <div class="vessel_category"><label>Vessel Category <select class="vessel_category"></select></label></div>
+</div>
 </body>
 </html>
