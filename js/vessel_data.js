@@ -18,7 +18,7 @@ let vessel_categories = {
  *
  */
 function load_ajax_data() {
-    //Get categories data from AJAX
+    //Get Vessel Categories data from AJAX
     let ajax_data = "post_type=POST&action=vessel_categories";
     let ajax_url = "ajax_data.txt";
     let xhttp = new XMLHttpRequest();
@@ -26,6 +26,8 @@ function load_ajax_data() {
         if (this.readyState == 4 && this.status == 200) {
             try {
                 vessel_categories = JSON.parse(this.responseText);
+                select_categories = vessel_categories_select(vessel_categories);
+                console.log(select_categories);
             }
             catch (err) {
                 console.log(this.responseText);

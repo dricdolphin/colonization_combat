@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <title>Star Ship Creator</title>
     <script src="js/vessel.js"></script>
-    <script src="js/vessel_data.js">
-        load_ajax_data();
-    </script>
+    <script src="js/vessel_data.js"></script>
     <script src="js/vessel_interface.js"></script>
     <link href="vessel_interface.css" rel="stylesheet">
 </head>
-<body onload="load_vessel_interface()">
+<body onload="load_ajax_data()">
 <div class="vessel" id="team_a">
-    <div class="vessel_name"><label>Vessel Name <input type="text" name="vessel_name"/></label></div>
-    <div class="vessel_category"><label>Vessel Category <select class="vessel_category"></select></label></div>
+    <a href="#" onclick="return new_vessel(event, this);">New Vessel</a>
 </div>
 </body>
 </html>
