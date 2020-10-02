@@ -1,7 +1,7 @@
 { "categories" : [
-        { "category_name":"Corveta", "base_HP":"10", "weapons_slots":"1", "armor_slots":"1", "shield_slots":"1", "max_engines":"1", "max_warp_engines":"1" },
-        { "category_name":"Fragata", "base_HP":"30", "weapons_slots":"2", "armor_slots":"1", "shield_slots":"1", "max_engines":"1", "max_warp_engines":"1" },
-        { "category_name":"Destroyer", "base_HP":"50", "weapons_slots":"3", "armor_slots":"1", "shield_slots":"1", "max_engines":"2", "max_warp_engines":"2" },
-        { "category_name":"Cruzador Leve", "base_HP":"100", "weapons_slots":"6", "armor_slots":"1", "shield_slots":"1", "max_engines":"2", "max_warp_engines":"2" },
-        { "category_name":"Cruzador Pesado", "base_HP":"250", "weapons_slots":"6", "armor_slots":"2", "shield_slots":"2", "max_engines":"2", "max_warp_engines":"2" }
+        { "category_name": "corvette", "base_HP":"10", "weapons_slots":"1", "armor_slots":"1", "shield_slots":"1", "max_engines":"1", "max_warp_engines":"1" },
+        { "category_name": "frigate", "base_HP":"30", "weapons_slots":"2", "armor_slots":"1", "shield_slots":"1", "max_engines":"1", "max_warp_engines":"1" },
+        { "category_name": "destroyer", "base_HP":"50", "weapons_slots":"3", "armor_slots":"1", "shield_slots":"1", "max_engines":"2", "max_warp_engines":"2" },
+        { "category_name": "light_cruiser", "base_HP":"100", "weapons_slots":"6", "armor_slots":"1", "shield_slots":"1", "max_engines":"2", "max_warp_engines":"2" },
+        { "category_name": "heavy_cruiser", "base_HP":"250", "weapons_slots":"6", "armor_slots":"2", "shield_slots":"2", "max_engines":"2", "max_warp_engines":"2" }
 ]}

@@ -19,9 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cdc5a09-55b9-444b-bca1-f5561e87449d" name="Default Changelist" comment="Refactoring vessel_category object">
+    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/colonization_combat.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/localization.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vessel.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_data.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel_interface.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_interface.js" afterDir="false" />
     </list>
@@ -33,9 +39,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
-        <option value="CSS File" />
-        <option value="HTTP Request" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -43,7 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1iH5RottlypdoknPi5hn4o7laDf" />
+  <component name="ProjectId" id="1iHwRGAsbaGAPsEh9CgkClNqE1N" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -53,47 +56,28 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="js.last.introduce.type" value="LET" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3cdc5a09-55b9-444b-bca1-f5561e87449d" name="Default Changelist" comment="" />
-      <created>1601551670841</created>
+      <changelist id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="" />
+      <created>1601577815851</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1601551670841</updated>
-      <workItem from="1601551671895" duration="5963000" />
-      <workItem from="1601558634565" duration="8771000" />
+      <updated>1601577815851</updated>
+      <workItem from="1601577817280" duration="2076000" />
+      <workItem from="1601632727934" duration="9196000" />
     </task>
-    <task id="LOCAL-00001" summary="Refactoring vessel_category object">
-      <created>1601558880167</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1601558880167</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Refactoring vessel_category object">
-      <created>1601570151293</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1601570151293</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,23 +93,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactoring vessel_category object" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring vessel_category object" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601573593087">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601573593087" />
-    <state x="706" y="374" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1601569775257">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="706" y="374" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1601569775257" />
-    <state x="784" y="439" key="Github.CreateGistDialog" timestamp="1601551775404">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="784" y="439" key="Github.CreateGistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601551775404" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

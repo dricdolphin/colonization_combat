@@ -26,6 +26,7 @@ function load_ajax_data() {
         if (this.readyState == 4 && this.status == 200) {
             try {
                 vessel_categories = JSON.parse(this.responseText);
+                vessel_categories.categories = localize_object(vessel_categories.categories,"category_name");
                 select_categories = vessel_categories_select(vessel_categories);
                 console.log(select_categories);
             }
