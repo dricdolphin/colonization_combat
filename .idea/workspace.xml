@@ -20,13 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/colonization_combat.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/localization.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/loader_interface.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/localization.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/localization.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_data.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel_interface.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_interface.js" afterDir="false" />
@@ -77,6 +74,8 @@
       <updated>1601577815851</updated>
       <workItem from="1601577817280" duration="2076000" />
       <workItem from="1601632727934" duration="9196000" />
+      <workItem from="1601721908227" duration="2208000" />
+      <workItem from="1601756672714" duration="5758000" />
     </task>
     <servers />
   </component>

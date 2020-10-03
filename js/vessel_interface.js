@@ -33,7 +33,7 @@ function new_vessel(click_event, click_link, vessel_categories_data = vessel_cat
     vessel_delete_ahref.innerText = dictionary[lang].vessel_delete_ahref_innerText;
     vessel_delete_ahref.addEventListener("click",function () {
         remove_vessel (event,this);
-    })
+    });
 
     let vessel_name_input = document.createElement("input");
     vessel_name_input.type = "text";
@@ -65,10 +65,12 @@ function new_vessel(click_event, click_link, vessel_categories_data = vessel_cat
     vessel_category_div.appendChild(vessel_category_label);
 
     let vessel_div = document.createElement("div");
+    vessel_div.setAttribute("data-type","vessel");
     vessel_div.appendChild(vessel_name_div);
-    vessel_div.appendChild(vessel_category_div)
+    vessel_div.appendChild(vessel_category_div);
 
     team_div.appendChild(vessel_div);
+    //TODO -- add vessel to vessel pool
 
     click_event.preventDefault();
     return false;
@@ -83,9 +85,26 @@ function new_vessel(click_event, click_link, vessel_categories_data = vessel_cat
 function remove_vessel (click_event, click_link) {
     let vessel_div = click_link.parentElement.parentElement;
     let main_div = vessel_div.parentElement;
+    let main_div_vessels = [];
+
+    main_div.childNodes.forEach(function(item, index, object) {
+            if (item.tagName === "DIV" && item.getAttribute("data-type") === "vessel") {
+                main_div_vessels.push(item);
+            }
+        }
+    );
+
+    for (let index = 0; index < main_div_vessels.length; index++) {
+        if (main_div_vessels[index] === vessel_div) {
+            console.log(index);
+            break;
+        }
+    }
+
 
     main_div.removeChild(vessel_div);
-    //TODO -- remove the vessel from the variable
+    //TODO -- remove vessel from vessel pool
+
 
     click_event.preventDefault();
     return false;

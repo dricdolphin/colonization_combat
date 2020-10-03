@@ -1,8 +1,9 @@
-let lang = "en";
+let lang = "en"; //Set default language to English
 const dictionary = [];
 
 dictionary['en'] = {
     main_title : "Star Ship Creator",
+    new_vessel_ahref_innerText : "New Vessel",
     vessel_name_label_innerText : "Vessel Name",
     vessel_delete_ahref_innerText : "Remove Vessel",
     vessel_category_label_innerText : "Category",
@@ -14,14 +15,16 @@ dictionary['en'] = {
 };
 
 //Localize Title (and other items) when document finishes loading
-window.addEventListener("load", function () {
+let localization_loader = window.addEventListener("load", function () {
     lang = document.body.lang;
 
     if (typeof(dictionary[lang]) === "undefined") {
         lang = "en";
     }
 
+    //Localize Title
     document.title = dictionary[lang].main_title;
+
     //TODO -- localization for all text variables
 });
 
@@ -33,11 +36,9 @@ window.addEventListener("load", function () {
  */
 function localize_object (object_localizing, property_being_localized) {
     let localized_property = property_being_localized;
-    let object_localized = object_localizing.map( function (currentValue, index) {
+    return object_localizing.map( function (currentValue) {
             currentValue[localized_property] = dictionary[lang][currentValue[localized_property]];
             return currentValue;
         }
     );
-
-    return object_localized;
 }
