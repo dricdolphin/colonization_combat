@@ -1,11 +1,48 @@
+let ajax_data = {
+    category_data: category_data,
+    weapon_data: weapon_data
+};
+//    armor_data: {},
+//     shield_data: {},
+//     engine_data: {},
+//     warp_engine_data: {}
+
+
 /**
  * Load the data used by the vessels
  *
  */
 function load_ajax_data() {
-    //Get Vessel Categories data from AJAX
-    let category_ajax_data = "post_type=POST&action=vessel_categories";
-    let category_ajax_url = "categories_ajax_data.txt";
+    let ajax_url = {};
+    let ajax_xml_request = {};
+    let ajax_request_data = {};
+
+    for (let property in ajax_data) {
+        let part_name = property.replace("_data","");
+        ajax_url[property] = part_name+"_ajax_data.txt";
+        ajax_request_data[property] = "post_type=POST&action="+part_name+"_data";
+
+        ajax_xml_request[property] = new XMLHttpRequest();
+        ajax_xml_request[property].onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                try {
+                    ajax_data[property] = JSON.parse(this.responseText);
+                    ajax_data[property].categories = localize_object(ajax_data[property].categories,part_name+"_name");
+                }
+                catch (err) {
+                    console.log(this.responseText);
+                    return false;
+                }
+            }
+        };
+        ajax_xml_request[property].open("POST", ajax_url[property], true);
+        ajax_xml_request[property].setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        ajax_xml_request[property].send(ajax_request_data[property]);
+    }
+
+    /***********
+    let category_ajax_data = "post_type=POST&action=category_data";
+    let category_ajax_url = "category_ajax_data.txt";
     let category_ajax_load = new XMLHttpRequest();
     category_ajax_load.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -24,8 +61,8 @@ function load_ajax_data() {
     category_ajax_load.send(category_ajax_data);
 
     //Get Weapon data from AJAX
-    let weapon_ajax_data = "post_type=POST&action=weapon_categories";
-    let weapon_ajax_url = "weapons_ajax_data.txt";
+    let weapon_ajax_data = "post_type=POST&action=weapon_data";
+    let weapon_ajax_url = "weapon_ajax_data.txt";
     let weapon_ajax_load = new XMLHttpRequest();
     weapon_ajax_load.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -42,4 +79,6 @@ function load_ajax_data() {
     weapon_ajax_load.open("POST", weapon_ajax_url, true);
     weapon_ajax_load.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     weapon_ajax_load.send(weapon_ajax_data);
+     //***/
+
 }

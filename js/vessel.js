@@ -2,7 +2,7 @@
  *  Creates a new vessel
  *
  *  @class
- *  @param name - vessel name
+ *  @param {string} name - vessel name
  *  @param category - object containing the category
  *  @param weapons - object array containing the weapons
  *  @param armors - object array containing the weapons

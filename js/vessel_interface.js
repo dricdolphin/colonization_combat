@@ -1,16 +1,19 @@
 /**
- * Populate the SELECT with options
+ * Populate a select with options
  *
- * @param parts_data - object containing the vessel category data
- * @param part_name - name of the property that has the category name
+ * @param parts_data -- object containing the vessel category data
+ * @param part_name -- name of the property that has the category name
+ * @param limiting_function -- function that will test if a given item can or cannot be added
  */
-function populate_part_names_select (parts_data, part_name) {
+function populate_part_names_select (parts_data, part_name, limiting_function = function () {return true;}) {
     const select = document.createElement("select");
 
     parts_data.categories.forEach(item => {
             let option = document.createElement("option");
             option.text = item[part_name+"_name"];
-            select.add(option);
+            if (limiting_function(item)) {
+                select.add(option);
+            }
         }
     );
 
@@ -24,24 +27,24 @@ function populate_part_names_select (parts_data, part_name) {
  * @param part_slots -- number of parts
  * @param parts_categories_data -- object containing data from part categories (default is produced by AJAX)
  * @param part_name -- name of the part
+ * @param select_limiting_function -- a function that limits what can be populated into the select
  */
-function populate_part_divs (parts_div, part_slots, parts_categories_data, part_name) {
+function populate_part_divs (parts_div, part_slots, parts_categories_data, part_name, select_limiting_function = function () {return true;}) {
     parts_div.innerHTML = "";
 
     for (let index = 0; index < part_slots; index++) {
 
         let part_name_label = document.createElement("label");
-        part_name_label.innerText = dictionary[lang].weapon_name_label_innerText;
+        part_name_label.innerText = dictionary[lang][part_name+"_name_label_innerText"];
 
-        let weapon_category_select = populate_part_names_select(parts_categories_data, part_name);
-        part_name_label.appendChild(weapon_category_select);
+        let part_select = populate_part_names_select(parts_categories_data, part_name, select_limiting_function);
+        part_name_label.appendChild(part_select);
 
-        let weapon_slot_div = document.createElement("div");
-        weapon_slot_div.className = part_name+"_div";
-        weapon_slot_div.appendChild(part_name_label);
-        //TODO -- eventually there will be special "buttons" for the weapons
+        let part_div = document.createElement("div");
+        part_div.className = part_name+"_div";
+        part_div.appendChild(part_name_label);
 
-        parts_div.appendChild(weapon_slot_div);
+        parts_div.appendChild(part_div);
     }
 
     return true;
@@ -52,10 +55,9 @@ function populate_part_divs (parts_div, part_slots, parts_categories_data, part_
  *
  * @param click_event - event from the clicked link
  * @param click_link - link that was used to access this function
- * @param vessel_categories_data - object containing data from vessel categories (default is produced by AJAX)
- * @param weapon_categories_data - object containing data from weapon categories (default is produced by AJAX)
+ * @param vessel_ajax_data - object containing data from all vessel's parts
  */
-function new_vessel(click_event, click_link, vessel_categories_data = category_data, weapon_categories_data = weapon_data) {
+function new_vessel(click_event, click_link, vessel_ajax_data = ajax_data) {
     let team_div = click_link.parentNode;
 
     let vessel_delete_ahref = document.createElement("a");
@@ -81,14 +83,23 @@ function new_vessel(click_event, click_link, vessel_categories_data = category_d
     let vessel_category_label = document.createElement("label");
     vessel_category_label.innerText = dictionary[lang].vessel_category_label_innerText;
 
-    let select_categories = populate_part_names_select(vessel_categories_data, "category");
+    let limiting_object = {
+        weapon : function (item) {
+            if (item.weapon_category === "laser") {
+                return true;
+            }
+            return false;
+        }
+    };
+
+    let select_categories = populate_part_names_select(vessel_ajax_data["category_data"], "category");
     select_categories.setAttribute("previously_selected_index",0);
     select_categories.addEventListener("click", function () {
             select_categories.setAttribute("previously_selected_index",this.selectedIndex);
         }
     );
     select_categories.addEventListener("change", function() {
-            vessel_category_change(this, this.getAttribute("previously_selected_index"));
+            vessel_category_change(this, this.getAttribute("previously_selected_index"), limiting_object);
         }
     );
     vessel_category_label.appendChild(select_categories);
@@ -98,7 +109,7 @@ function new_vessel(click_event, click_link, vessel_categories_data = category_d
 
     let vessel_weapons_div = document.createElement("div");
     vessel_weapons_div.className = "weapons_div";
-    populate_part_divs(vessel_weapons_div, 1, weapon_categories_data, "weapon");
+    populate_part_divs(vessel_weapons_div, 1, vessel_ajax_data["weapon_data"], "weapon", limiting_object["weapon"]);
 
     let vessel_div = document.createElement("div");
     vessel_div.className = "vessel_div";
@@ -123,8 +134,8 @@ function new_vessel(click_event, click_link, vessel_categories_data = category_d
 function remove_vessel (click_event, click_link) {
     let vessel_div = click_link.parentElement.parentElement;
     let main_div = vessel_div.parentElement;
-    let main_div_vessels = [];
 
+    let main_div_vessels = []; //Array with the vessels divs
     main_div.childNodes.forEach(item => {
             if (item.tagName === "DIV" && item.getAttribute("data-type") === "vessel") {
                 main_div_vessels.push(item);
@@ -132,57 +143,18 @@ function remove_vessel (click_event, click_link) {
         }
     );
 
+    //Get the index of the current vessel being removed
+    let vessel_index = 0;
     for (let index = 0; index < main_div_vessels.length; index++) {
         if (main_div_vessels[index] === vessel_div) {
             console.log(index);
+            vessel_index = index;
             break;
         }
     }
-
 
     main_div.removeChild(vessel_div);
     //TODO -- remove vessel from vessel pool
-
-
     click_event.preventDefault();
     return false;
-}
-
-/**
- * Inform user that changing a vessel category will remove all changes
- * and then changes the category and add editable slots (weapon, engines etc)
- *
- * @param category_select - select that was used to access this function
- * @param selected_index - index that was selected
- * @param weapon_categories_data -- object containing data from weapon categories (default is produced by AJAX)
- */
-function vessel_category_change(category_select, selected_index, weapon_categories_data = weapon_data) {
-    const accept_change = confirm("Changing categories will remove all changes from the Vessel. Continue?");
-
-    if (!accept_change) {
-        category_select.selectedIndex = selected_index
-        return false;
-    }
-
-    //TODO -- Change the inner divs
-    let weapons_div = {};
-
-    let vessel_div = category_select.parentNode;
-    while (vessel_div = vessel_div.parentNode) {
-        if (vessel_div.className === "vessel_div") {
-            break;
-        }
-    }
-
-    vessel_div.childNodes.forEach(item => {
-        if (item.tagName === "DIV") {
-            if (item.className === "weapons_div" ) {
-                weapons_div = item;
-            }
-        }
-    });
-
-    populate_part_divs(weapons_div,category_data.categories[category_select.selectedIndex].weapon_slots,weapon_categories_data,"weapon")
-
-    return true;
 }
