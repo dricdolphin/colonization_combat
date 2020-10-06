@@ -19,14 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/loader_interface.js" afterDir="false" />
+    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="Created fully JavaScript interface and refactored vessel_interface.js code">
+      <change afterPath="$PROJECT_DIR$/js/dictionary.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weapons_ajax_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/categories_ajax_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/localization.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/localization.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vessel.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vessel_interface.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_interface.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,8 +75,17 @@
       <workItem from="1601577817280" duration="2076000" />
       <workItem from="1601632727934" duration="9196000" />
       <workItem from="1601721908227" duration="2208000" />
-      <workItem from="1601756672714" duration="5758000" />
+      <workItem from="1601756672714" duration="5871000" />
+      <workItem from="1601983459861" duration="3002000" />
     </task>
+    <task id="LOCAL-00001" summary="Created fully JavaScript interface and refactored vessel_interface.js code">
+      <created>1601765061576</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601765061576</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,5 +102,15 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created fully JavaScript interface and refactored vessel_interface.js code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created fully JavaScript interface and refactored vessel_interface.js code" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1601765068188">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601765068188" />
   </component>
 </project>

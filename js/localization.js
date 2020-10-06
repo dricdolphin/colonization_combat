@@ -1,18 +1,5 @@
 let lang = "en"; //Set default language to English
-const dictionary = [];
-
-dictionary['en'] = {
-    main_title : "Star Ship Creator",
-    new_vessel_ahref_innerText : "New Vessel",
-    vessel_name_label_innerText : "Vessel Name",
-    vessel_delete_ahref_innerText : "Remove Vessel",
-    vessel_category_label_innerText : "Category",
-    corvette : "Corvette",
-    frigate : "Frigate",
-    destroyer : "Destroyer",
-    light_cruiser : "Light Cruiser",
-    heavy_cruiser : "Heavy Cruiser"
-};
+let dictionary = [];
 
 //Localize Title (and other items) when document finishes loading
 let localization_loader = window.addEventListener("load", function () {
