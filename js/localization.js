@@ -22,10 +22,9 @@ let localization_loader = window.addEventListener("load", function () {
  * @param property_being_localized -- property being localized
  */
 function localize_object (object_localizing, property_being_localized) {
-    let localized_property = property_being_localized;
-    return object_localizing.map( function (currentValue) {
-            currentValue[localized_property] = dictionary[lang][currentValue[localized_property]];
-            return currentValue;
+    return object_localizing.map( item => {
+            item[property_being_localized] = dictionary[lang][item[property_being_localized]];
+            return item;
         }
     );
 }

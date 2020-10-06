@@ -1,4 +1,4 @@
-{ "weapons" : [
+{ "categories" : [
         { "weapon_name": "red_laser", "damage_vs_shields":"1", "damage_vs_armor":"3", "base_damage":"5", "accuracy":"10", "range":"1", "weapon_category":"laser", "weapon_level":"1"},
         { "weapon_name": "blue_laser", "damage_vs_shields":"2", "damage_vs_armor":"3", "base_damage":"5", "accuracy":"10", "range":"1", "weapon_category":"laser", "weapon_level":"2"},
         { "weapon_name": "violet_laser", "damage_vs_shields":"3", "damage_vs_armor":"3", "base_damage":"5", "accuracy":"10", "range":"1", "weapon_category":"laser", "weapon_level":"3"},
