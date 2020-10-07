@@ -19,16 +19,44 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="Refactored vessel parts objects and file locations (created separated directories for different files such as vessel_parts and dictionaries)">
+    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="Refactored data aquisition process">
+      <change afterPath="$PROJECT_DIR$/ajax_data/armor_ajax_data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ajax_data/category_ajax_data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ajax_data/engine_ajax_data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ajax_data/player_ajax_data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ajax_data/shield_ajax_data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ajax_data/warp_engine_ajax_data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ajax_data/weapon_ajax_data.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Roboto-Black.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Roboto-BlackItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Roboto-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Roboto-BoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Roboto-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Roboto-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Roboto-LightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Roboto-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Roboto-MediumItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Roboto-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Roboto-Thin.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Roboto-ThinItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/ajax_data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/player_data.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories_ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/category_ajax_data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category_ajax_data.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/dictionaries/dictionary_en.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dictionaries/dictionary_en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/loader_interface.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/loader_interface.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vessel_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vessel_data.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel_interface.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_interface.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vessel_parts/armor.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_parts/armor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel_parts/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_parts/category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vessel_parts/engine.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_parts/engine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vessel_parts/shield.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_parts/shield.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vessel_parts/warp_engine.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_parts/warp_engine.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel_parts/weapon.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_parts/weapon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weapons_ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/weapon_ajax_data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vessel_interface.css" beforeDir="false" afterPath="$PROJECT_DIR$/vessel_interface.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weapon_ajax_data.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +82,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -68,11 +97,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Adriano\Documents\GitHub\colonization_combat\ajax_data" />
+      <recent name="C:\Users\Adriano\Documents\GitHub\colonization_combat\js\dictionaries" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Adriano\Documents\GitHub\colonization_combat\js\vessel_parts" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Adriano\Documents\GitHub\colonization_combat\js\dictionaries" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -87,7 +117,8 @@
       <workItem from="1601632727934" duration="9196000" />
       <workItem from="1601721908227" duration="2208000" />
       <workItem from="1601756672714" duration="5871000" />
-      <workItem from="1601983459861" duration="25656000" />
+      <workItem from="1601983459861" duration="25950000" />
+      <workItem from="1602066064144" duration="28254000" />
     </task>
     <task id="LOCAL-00001" summary="Created fully JavaScript interface and refactored vessel_interface.js code">
       <created>1601765061576</created>
@@ -110,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602006102925</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Refactored data aquisition process">
+      <created>1602018403464</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1602018403464</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,19 +167,21 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Created fully JavaScript interface and refactored vessel_interface.js code" />
     <MESSAGE value="Refacted localization functions and created weapon data loading system" />
     <MESSAGE value="Refactored vessel parts objects and file locations (created separated directories for different files such as vessel_parts and dictionaries)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored vessel parts objects and file locations (created separated directories for different files such as vessel_parts and dictionaries)" />
+    <MESSAGE value="Refactored data aquisition process" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored data aquisition process" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602005933226">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602005933226" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602006105987">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602018405952">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602006105987" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602018405952" />
   </component>
 </project>

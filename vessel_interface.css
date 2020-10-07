@@ -1,11 +1,156 @@
-.vessel {
-
+* {
+    font-family: Roboto, Helvetica, sans-serif;
+    font-size: 14px;
 }
 
-.vessel_name {
-
+body {
+    font-family: Roboto, Helvetica, sans-serif;
+    font-size: 14px;
 }
 
-.vessel_category {
+@font-face {
+    font-family: Roboto;
+    src: url('fonts/Roboto-Regular.ttf');
+    font-weight: normal;
+}
 
+@font-face {
+    font-family: Roboto;
+    src: url('fonts/Roboto-Bold.ttf');
+    font-weight: bold;
+}
+
+.team_div {}
+
+.team_div a:link {
+    color: mediumblue;
+    text-decoration: none;
+}
+
+.team_div a:visited {
+    color: mediumblue;
+    text-decoration: none;
+}
+
+.team_div a:hover {
+    color: darkblue;
+    text-decoration: none;
+}
+
+.new_vessel_ahref {
+    display: block;
+}
+
+.vessel_div {
+    display: inline-block;
+    background-color: lightsteelblue;
+    margin: 3px;
+    padding: 2px;
+    max-width: 470px;
+    text-align: center;
+    vertical-align: top;
+}
+
+input[type=text].vessel_name_input {
+    background-color: rgba(0,0,0,0);
+    border: none;
+    text-align: center;
+    display: inline-block;
+}
+
+input[type=text].vessel_name_input:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+.vessel_category {}
+
+.vessel_delete_ahref {
+    display: block;
+}
+
+select {
+    background-color: rgba(0,0,0,0);
+    border: none;
+    text-align: center;
+    text-align-all: center;
+    text-align-last: center;
+    width: 100%;
+    margin: 2px;
+
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+}
+
+/* For IE10 */
+select::-ms-expand {
+    display: none;
+}
+
+select:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.1);
+}
+
+option {
+    text-align: center;
+    width: 100%;
+    padding: 2px;
+}
+
+.weapons_div {
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    background-color: steelblue;
+}
+.weapon_div {
+    display: inline-block;
+}
+
+.armors_div {
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    background-color: steelblue;
+}
+.armor_div {
+    display: inline-block;
+}
+
+.shields_div {
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    background-color: steelblue;
+}
+.shield_div {
+    display: inline-block;
+}
+
+.engines_div {
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    background-color: steelblue;
+}
+.engine_div {
+    display: inline-block;
+}
+
+.warp_engines_div {
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    background-color: steelblue;
+}
+.warp_engine_div {
+    display: inline-block;
 }

@@ -1,0 +1,12 @@
+{ "categories" : [
+        {   "id":"0",
+            "player_category_level":"5",
+            "player_torpedo_level":"6",
+            "player_bomber_level":"6",
+            "player_laser_level":"6",
+            "player_armor_level":"6",
+            "player_shield_level":"6",
+            "player_engine_level":"6",
+            "player_warp_engine_level":"6"
+        }
+]}

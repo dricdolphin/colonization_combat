@@ -4,14 +4,16 @@
  * @param parts_data -- object containing the vessel category data
  * @param part_name -- name of the property that has the category name
  * @param limiting_function -- function that will test if a given item can or cannot be added
+ * @param extra_info -- extra info used by the limiting_function
  */
-function populate_part_names_select (parts_data, part_name, limiting_function = function () {return true;}) {
+function populate_part_names_select (parts_data, part_name, limiting_function = function () {return true;}, extra_info = {}) {
     const select = document.createElement("select");
 
     parts_data.categories.forEach(item => {
             let option = document.createElement("option");
             option.text = item[part_name+"_name"];
-            if (limiting_function(item)) {
+            option.value = item.id;
+            if (limiting_function(item, extra_info)) {
                 select.add(option);
             }
         }
@@ -28,23 +30,31 @@ function populate_part_names_select (parts_data, part_name, limiting_function = 
  * @param parts_categories_data -- object containing data from part categories (default is produced by AJAX)
  * @param part_name -- name of the part
  * @param select_limiting_function -- a function that limits what can be populated into the select
+ * @param extra_info -- extra info used by the select_limiting_function
  */
-function populate_part_divs (parts_div, part_slots, parts_categories_data, part_name, select_limiting_function = function () {return true;}) {
+function populate_part_divs (parts_div, part_slots, parts_categories_data, part_name, select_limiting_function = function () {return true;}, extra_info = {}) {
     parts_div.innerHTML = "";
+    let part_name_label = document.createElement("label");
+    part_name_label.innerText = dictionary[lang][part_name+"_name_label_innerText"];
+    parts_div.appendChild(part_name_label);
 
     for (let index = 0; index < part_slots; index++) {
+        //let part_name_label = document.createElement("label");
+        //part_name_label.innerText = dictionary[lang][part_name+"_name_label_innerText"];
 
-        let part_name_label = document.createElement("label");
-        part_name_label.innerText = dictionary[lang][part_name+"_name_label_innerText"];
-
-        let part_select = populate_part_names_select(parts_categories_data, part_name, select_limiting_function);
-        part_name_label.appendChild(part_select);
+        let part_select = populate_part_names_select(parts_categories_data, part_name, select_limiting_function, extra_info);
+        //part_name_label.appendChild(part_select);
 
         let part_div = document.createElement("div");
         part_div.className = part_name+"_div";
-        part_div.appendChild(part_name_label);
+        part_div.appendChild(part_select);
 
         parts_div.appendChild(part_div);
+    }
+
+    parts_div.style.display = "";
+    if (part_slots === "0" || part_slots === undefined) {
+        parts_div.style.display = "none";
     }
 
     return true;
@@ -56,13 +66,15 @@ function populate_part_divs (parts_div, part_slots, parts_categories_data, part_
  * @param click_event - event from the clicked link
  * @param click_link - link that was used to access this function
  * @param vessel_ajax_data - object containing data from all vessel's parts
+ * @param select_limiting_object -- object containing the limiting functions used to determine what can or can't be populated in a select
  */
-function new_vessel(click_event, click_link, vessel_ajax_data = ajax_data) {
+function new_vessel(click_event, click_link, vessel_ajax_data = ajax_data, select_limiting_object = limiting_object) {
     let team_div = click_link.parentNode;
 
     let vessel_delete_ahref = document.createElement("a");
     vessel_delete_ahref.href = "#";
     vessel_delete_ahref.innerText = dictionary[lang].vessel_delete_ahref_innerText;
+    vessel_delete_ahref.className = "vessel_delete_ahref";
     vessel_delete_ahref.addEventListener("click",function () {
         remove_vessel (event,this);
     });
@@ -70,53 +82,63 @@ function new_vessel(click_event, click_link, vessel_ajax_data = ajax_data) {
     let vessel_name_input = document.createElement("input");
     vessel_name_input.type = "text";
     vessel_name_input.name = "vessel_name";
+    vessel_name_input.className = "vessel_name_input";
+    vessel_name_input.value = dictionary[lang].vessel_name_label_innerText;
+    vessel_name_input.addEventListener("focusout", function() {
+        if (this.value === "") {
+            this.value = dictionary[lang].vessel_name_label_innerText;
+        }
+    });
 
-    let vessel_name_label = document.createElement("label");
-    vessel_name_label.innerText = dictionary[lang].vessel_name_label_innerText;
-    vessel_name_label.appendChild(vessel_name_input);
+    //let vessel_name_label = document.createElement("label");
+    //vessel_name_label.innerText = dictionary[lang].vessel_name_label_innerText;
+    //vessel_name_label.appendChild(vessel_name_input);
 
     let vessel_name_div = document.createElement("div");
-    vessel_name_div.appendChild(vessel_name_label);
     vessel_name_div.appendChild(vessel_delete_ahref);
+    vessel_name_div.appendChild(vessel_name_input);
 
 
     let vessel_category_label = document.createElement("label");
     vessel_category_label.innerText = dictionary[lang].vessel_category_label_innerText;
 
-    let limiting_object = {
-        weapon : function (item) {
-            if (item.weapon_category === "laser") {
-                return true;
-            }
-            return false;
-        }
-    };
-
-    let select_categories = populate_part_names_select(vessel_ajax_data["category_data"], "category");
+    let select_categories = populate_part_names_select(vessel_ajax_data["category_data"], "category", select_limiting_object.category, new player_data());
     select_categories.setAttribute("previously_selected_index",0);
     select_categories.addEventListener("click", function () {
             select_categories.setAttribute("previously_selected_index",this.selectedIndex);
         }
     );
     select_categories.addEventListener("change", function() {
-            vessel_category_change(this, this.getAttribute("previously_selected_index"), limiting_object);
+            vessel_category_change(this, this.getAttribute("previously_selected_index"), select_limiting_object);
         }
     );
-    vessel_category_label.appendChild(select_categories);
+
 
     let vessel_category_div = document.createElement("div");
     vessel_category_div.appendChild(vessel_category_label);
-
-    let vessel_weapons_div = document.createElement("div");
-    vessel_weapons_div.className = "weapons_div";
-    populate_part_divs(vessel_weapons_div, 1, vessel_ajax_data["weapon_data"], "weapon", limiting_object["weapon"]);
+    vessel_category_div.appendChild(select_categories);
 
     let vessel_div = document.createElement("div");
     vessel_div.className = "vessel_div";
     vessel_div.setAttribute("data-type","vessel");
     vessel_div.appendChild(vessel_name_div);
     vessel_div.appendChild(vessel_category_div);
-    vessel_div.appendChild(vessel_weapons_div);
+
+    for (let vessel_parts in vessel_ajax_data) {
+        if (vessel_parts !== "category_data") {
+            let part_name = vessel_parts.replace("_data", "");
+            let part_slots = part_name + "_slots";
+            let part_div = document.createElement("div");
+            part_div.className = part_name + "s_div";
+
+            let limiting_object = {};
+            limiting_object.player_data = new player_data();
+            limiting_object.category_data = vessel_ajax_data["category_data"].categories[0];
+
+            populate_part_divs(part_div, vessel_ajax_data["category_data"].categories[0][part_slots], vessel_ajax_data[part_name + "_data"], part_name, select_limiting_object[part_name], limiting_object);
+            vessel_div.appendChild(part_div);
+        }
+    }
 
     team_div.appendChild(vessel_div);
     //TODO -- add vessel to vessel pool

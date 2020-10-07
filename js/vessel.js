@@ -1,3 +1,5 @@
+let limiting_object = {};
+
 /**
  *  Creates a new vessel
  *

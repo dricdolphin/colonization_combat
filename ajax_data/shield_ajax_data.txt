@@ -1,0 +1,8 @@
+{ "categories" : [
+        { "id":"1", "shield_name": "hull_polarization", "base_HP":"10", "damage_reduction":"0", "shield_level":"1"},
+        { "id":"2", "shield_name": "simple_screen", "base_HP":"25", "damage_reduction":"0", "shield_level":"2"},
+        { "id":"3", "shield_name": "double_screen", "base_HP":"30", "damage_reduction":"0", "shield_level":"3"},
+        { "id":"4", "shield_name": "monophasic_shield", "base_HP":"50", "damage_reduction":"0", "shield_level":"4"},
+        { "id":"5", "shield_name": "rotating_harmonics_shield", "base_HP":"50", "damage_reduction":"1", "shield_level":"5"},
+        { "id":"6", "shield_name": "multiharmonic_shield", "base_HP":"50", "damage_reduction":"2", "shield_level":"6"}
+]}

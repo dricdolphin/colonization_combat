@@ -1,0 +1,8 @@
+{ "categories" : [
+        { "id":"1", "category_name": "corvette", "base_HP":"10", "weapon_slots":"1", "armor_slots":"1", "shield_slots":"0", "engine_slots":"1", "warp_engine_slots":"1", "category_level":"1", "enemy_accuracy_bonus":"0", "bomber":"false" },
+        { "id":"2", "category_name": "frigate", "base_HP":"30", "weapon_slots":"2", "armor_slots":"1", "shield_slots":"1", "engine_slots":"1", "warp_engine_slots":"1", "category_level":"2", "enemy_accuracy_bonus":"1", "bomber":"false" },
+        { "id":"3", "category_name": "destroyer", "base_HP":"50", "weapon_slots":"3", "armor_slots":"1", "shield_slots":"1", "engine_slots":"2", "warp_engine_slots":"2", "category_level":"3", "enemy_accuracy_bonus":"1", "bomber":"false" },
+        { "id":"4", "category_name": "light_cruiser", "base_HP":"100", "weapon_slots":"6", "armor_slots":"1", "shield_slots":"1", "engine_slots":"2", "warp_engine_slots":"2", "category_level":"4", "enemy_accuracy_bonus":"2", "bomber":"false" },
+        { "id":"5", "category_name": "heavy_cruiser", "base_HP":"250", "weapon_slots":"6", "armor_slots":"2", "shield_slots":"1", "engine_slots":"2", "warp_engine_slots":"2", "category_level":"5", "enemy_accuracy_bonus":"2", "bomber":"false" },
+        { "id":"6", "category_name": "light_bomber", "base_HP":"250", "weapon_slots":"1", "armor_slots":"1", "shield_slots":"0", "engine_slots":"1", "warp_engine_slots":"1", "category_level":"1", "enemy_accuracy_bonus":"2", "bomber":"true" }
+]}

@@ -1,6 +1,7 @@
 let category_data = {
     categories: [
         {
+            id: "",
             category_name: "",
             base_HP: "",
             weapon_slots: "",
@@ -9,9 +10,18 @@ let category_data = {
             engine_slots: "",
             warp_engine_slots: "",
             category_level : "",
-            enemy_accuracy_bonus: ""
+            enemy_accuracy_bonus: "",
+            bomber: ""
         }
     ]
+};
+
+//Add the limiting function for populating the part select
+limiting_object["category"] = function (item, extra_info) {
+    if (item.category_level > extra_info.player_category_level) {
+        return false;
+    }
+    return true;
 };
 
 /**
@@ -24,10 +34,13 @@ let category_data = {
  */
 
 function category (object_index, ajax_data, object_data = category_data) {
-    this.part_index = object_index;
+    this.id = object_index;
+    const category_index = ajax_data[this.constructor.name+"_data"].categories.findIndex(x => x.id === this.id);
 
     for (const property in object_data.categories[0]) {
-         this[property] = ajax_data[this.constructor.name+"_data"].categories[object_index][property];
+        if (property !== "id") {
+            this[property] = ajax_data[this.constructor.name + "_data"].categories[category_index][property];
+        }
     }
 }
 
@@ -36,15 +49,15 @@ function category (object_index, ajax_data, object_data = category_data) {
  * and then changes the category and add editable slots (weapon, engines etc)
  *
  * @param category_select - select that was used to access this function
- * @param selected_index - index that was selected
+ * @param previously_selected_index - index that was selected
  * @param limiting_object - object with all the limits that must be propagated
  * @param category_ajax_data -- object containing data from all vessel parts
  */
-function vessel_category_change(category_select, selected_index, limiting_object, category_ajax_data = ajax_data) {
+function vessel_category_change(category_select, previously_selected_index, limiting_object, category_ajax_data = ajax_data) {
     const accept_change = confirm("Changing categories will remove all changes from the Vessel. Continue?");
 
     if (!accept_change) {
-        category_select.selectedIndex = selected_index
+        category_select.selectedIndex = previously_selected_index
         return false;
     }
 
@@ -64,12 +77,18 @@ function vessel_category_change(category_select, selected_index, limiting_object
 
     };
 
+    let extra_info_object = {};
+    let category_index = category_ajax_data["category_data"].categories.findIndex(x => x.id === category_select.options[category_select.selectedIndex].value);
+
+    extra_info_object.category_data = category_ajax_data["category_data"].categories[category_index];
+    extra_info_object.player_data = new player_data();
+
     vessel_div.childNodes.forEach(item => {
         if (item.tagName === "DIV" && item.className !== "") {
             if (typeof(parts_div[item.className]) !== "undefined") {
                 parts_div[item.className] = item;
                 let part_name = item.className.replace("s_div","");
-                populate_part_divs(item, category_ajax_data["category_data"].categories[category_select.selectedIndex][part_name+"_slots"], category_ajax_data[part_name+"_data"], part_name, limiting_object[part_name])
+                populate_part_divs(item, category_ajax_data["category_data"].categories[category_index][part_name+"_slots"], category_ajax_data[part_name+"_data"], part_name, limiting_object[part_name], extra_info_object)
             }
         }
     });

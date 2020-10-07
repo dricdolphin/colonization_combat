@@ -6,6 +6,7 @@ let data_loader = window.addEventListener("load", function () {
 function load_interface () {
     const new_vessel_ahref = document.createElement("a");
     new_vessel_ahref.href = "#";
+    new_vessel_ahref.className = "new_vessel_ahref";
     new_vessel_ahref.innerText = dictionary[lang].new_vessel_ahref_innerText;
 
     let team_a_div = document.createElement("div");
