@@ -3,7 +3,7 @@ let dictionary = [];
 
 //Localize Title (and other items) when document finishes loading
 let localization_loader = window.addEventListener("load", function () {
-    lang = document.body.lang;
+    lang = document.documentElement.lang;
 
     if (typeof(dictionary[lang]) === "undefined") {
         lang = "en";
