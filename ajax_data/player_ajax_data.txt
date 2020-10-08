@@ -1,6 +1,6 @@
 { "categories" : [
         {   "id":"0",
-            "player_category_level":"5",
+            "player_category_level":"10",
             "player_torpedo_level":"6",
             "player_bomber_level":"6",
             "player_laser_level":"6",

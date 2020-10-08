@@ -6,6 +6,7 @@
 body {
     font-family: Roboto, Helvetica, sans-serif;
     font-size: 14px;
+    vertical-align: top;
 }
 
 @font-face {
@@ -20,7 +21,13 @@ body {
     font-weight: bold;
 }
 
-.team_div {}
+.team_div {
+    display: inline-block;
+    width: 49%;
+    margin: 2px;
+    vertical-align: top;
+    background-color: rgba(0, 0, 0, 0.03);
+}
 
 .team_div a:link {
     color: mediumblue;
@@ -39,11 +46,13 @@ body {
 
 .new_vessel_ahref {
     display: block;
+    margin: 2px;
+    padding: 2px;
 }
 
 .vessel_div {
     display: inline-block;
-    background-color: lightsteelblue;
+    background-color: rgba(0,0,0,0.05);
     margin: 3px;
     padding: 2px;
     max-width: 470px;
@@ -56,6 +65,7 @@ input[type=text].vessel_name_input {
     border: none;
     text-align: center;
     display: inline-block;
+    width: 92%;
 }
 
 input[type=text].vessel_name_input:hover {
@@ -68,9 +78,14 @@ label {
     font-weight: bold;
 }
 
-.vessel_category {}
+.vessel_category_div {
+    position: relative;
+}
 
 .vessel_delete_ahref {
+    position: absolute;
+    right: 2px;
+    top: 2px;
     display: block;
 }
 
@@ -81,7 +96,8 @@ select {
     text-align-all: center;
     text-align-last: center;
     width: 100%;
-    margin: 2px;
+    margin: 2px 15px 2px 0;
+    padding: 2px;
 
     /* for Firefox */
     -moz-appearance: none;
@@ -103,13 +119,15 @@ option {
     text-align: center;
     width: 100%;
     padding: 2px;
+    color: #505050;
 }
 
 .weapons_div {
     padding: 2px;
     margin: 2px;
     text-align: center;
-    background-color: steelblue;
+    background-color: #0274be;
+    color: #FAFAFA;
 }
 .weapon_div {
     display: inline-block;
@@ -119,7 +137,8 @@ option {
     padding: 2px;
     margin: 2px;
     text-align: center;
-    background-color: steelblue;
+    background-color: #0274be;
+    color: #FAFAFA;
 }
 .armor_div {
     display: inline-block;
@@ -129,7 +148,8 @@ option {
     padding: 2px;
     margin: 2px;
     text-align: center;
-    background-color: steelblue;
+    background-color: #0274be;
+    color: #FAFAFA;
 }
 .shield_div {
     display: inline-block;
@@ -139,7 +159,8 @@ option {
     padding: 2px;
     margin: 2px;
     text-align: center;
-    background-color: steelblue;
+    background-color: #0274be;
+    color: #FAFAFA;
 }
 .engine_div {
     display: inline-block;
@@ -149,8 +170,53 @@ option {
     padding: 2px;
     margin: 2px;
     text-align: center;
-    background-color: steelblue;
+    background-color: #0274be;
+    color: #FAFAFA;
 }
 .warp_engine_div {
     display: inline-block;
+}
+
+select.vessel_part {
+    color: white;
+}
+
+.team_b .weapons_div {
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    background-color: #be0208;
+    color: #FAFAFA;
+}
+
+.team_b .armors_div {
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    background-color: #be0208;
+    color: #FAFAFA;
+}
+
+.team_b .shields_div {
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    background-color: #be0208;
+    color: #FAFAFA;
+}
+
+.team_b .engines_div {
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    background-color: #be0208;
+    color: #FAFAFA;
+}
+
+.team_b .warp_engines_div {
+    padding: 2px;
+    margin: 2px;
+    text-align: center;
+    background-color: #be0208;
+    color: #FAFAFA;
 }

@@ -31,14 +31,14 @@ limiting_object["weapon"] = function (item, extra_info) {
  *
  * @class
  * @param object_index -- index of the category, same index as from vessel_categories object
- * @param ajax_data -- object data from the AJAX
+ * @param weapon_ajax_data -- object data from the AJAX
  * @param object_data -- data used to create the object
  */
-function weapon (object_index, ajax_data, object_data = weapon_data) {
-    this.id = object_index;
-    let category_index = ajax_data[this.constructor.name+"_data"].categories.findIndex(x => x.id === this.id);
+function weapon (object_index, weapon_ajax_data = ajax_data, object_data = weapon_data) {
+    this.id = Number(object_index);
+    let category_index = weapon_ajax_data["weapon_data"].categories.findIndex(x => x.id === this.id);
 
     for (const property in object_data.categories[0]) {
-        this[property] = ajax_data[this.constructor.name+"_data"].categories[category_index][property];
+        this[property] = weapon_ajax_data["weapon_data"].categories[category_index][property];
     }
 }

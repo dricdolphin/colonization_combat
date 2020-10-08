@@ -21,18 +21,18 @@ limiting_object["shield"] = function (item, extra_info) {
  *  Shield class
  *
  * @class
- * @param id -- index of the category, same index as from vessel_categories object
- * @param ajax_data -- object data from the AJAX
+ * @param object_index -- index of the category, same index as from vessel_categories object
+ * @param shield_ajax_data -- object data from the AJAX
  * @param object_data -- data used to create the object
  */
 
-function shield (object_index, ajax_data, object_data = shield_data) {
-    this.id = object_index;
-    const category_index = ajax_data[this.constructor.name+"_data"].categories.findIndex(x => x.id === this.id);
+function shield (object_index, shield_ajax_data = ajax_data, object_data = shield_data) {
+    this.id = Number(object_index);
+    const category_index = shield_ajax_data["shield_data"].categories.findIndex(x => x.id === this.id);
 
     for (const property in object_data.categories[0]) {
         if (property !== "id") {
-            this[property] = ajax_data[this.constructor.name + "_data"].categories[category_index][property];
+            this[property] = shield_ajax_data["shield_data"].categories[category_index][property];
         }
     }
 }

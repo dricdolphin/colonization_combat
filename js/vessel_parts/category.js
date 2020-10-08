@@ -29,17 +29,17 @@ limiting_object["category"] = function (item, extra_info) {
  *
  * @class
  * @param object_index -- index of the category, same index as from vessel_categories object
- * @param ajax_data -- object data from the AJAX
+ * @param category_ajax_data -- object data from the AJAX
  * @param object_data -- data used to create the object
  */
 
-function category (object_index, ajax_data, object_data = category_data) {
-    this.id = object_index;
-    const category_index = ajax_data[this.constructor.name+"_data"].categories.findIndex(x => x.id === this.id);
+function category (object_index, category_ajax_data = ajax_data, object_data = category_data) {
+    this.id = Number(object_index);
+    const category_index = category_ajax_data["category_data"].categories.findIndex(x => x.id === this.id);
 
     for (const property in object_data.categories[0]) {
         if (property !== "id") {
-            this[property] = ajax_data[this.constructor.name + "_data"].categories[category_index][property];
+            this[property] = category_ajax_data["category_data"].categories[category_index][property];
         }
     }
 }
@@ -48,37 +48,34 @@ function category (object_index, ajax_data, object_data = category_data) {
  * Inform user that changing a vessel category will remove all changes
  * and then changes the category and add editable slots (weapon, engines etc)
  *
- * @param category_select - select that was used to access this function
- * @param previously_selected_index - index that was selected
- * @param limiting_object - object with all the limits that must be propagated
+ * @param category_select -- select that was used to access this function
+ * @param previously_selected_index -- index that was previously selected
+ * @param limiting_object -- object with all the limits that must be propagated
  * @param category_ajax_data -- object containing data from all vessel parts
  */
-function vessel_category_change(category_select, previously_selected_index, limiting_object, category_ajax_data = ajax_data) {
-    const accept_change = confirm("Changing categories will remove all changes from the Vessel. Continue?");
-
-    if (!accept_change) {
-        category_select.selectedIndex = previously_selected_index
-        return false;
-    }
-
+function vessel_category_change (category_select, previously_selected_index, limiting_object, category_ajax_data = ajax_data) {
+    //const accept_change = confirm("Changing categories will remove all changes from the Vessel. Continue?");
+    let vessel_parts_objects = [];
     let vessel_div = category_select.parentNode;
-    while (vessel_div = vessel_div.parentNode) {
-        if (vessel_div.className === "vessel_div") {
-            break;
-        }
+    while (vessel_div.className !== "vessel_div") {
+        vessel_div = vessel_div.parentNode
     }
+
+    let main_div = vessel_div.parentElement;
+
+    let vessel_name_input = vessel_div.getElementsByTagName("input");
+    vessel_name_input = vessel_name_input[0];
 
     let parts_div = {
-        weapons_div: {},
-        armors_div: {},
         shields_div: {},
+        armors_div: {},
         engines_div: {},
         warp_engines_div: {},
-
+        weapons_div: {}
     };
 
     let extra_info_object = {};
-    let category_index = category_ajax_data["category_data"].categories.findIndex(x => x.id === category_select.options[category_select.selectedIndex].value);
+    let category_index = category_ajax_data["category_data"].categories.findIndex(x => x.id === Number(category_select.options[category_select.selectedIndex].value));
 
     extra_info_object.category_data = category_ajax_data["category_data"].categories[category_index];
     extra_info_object.player_data = new player_data();
@@ -88,11 +85,14 @@ function vessel_category_change(category_select, previously_selected_index, limi
             if (typeof(parts_div[item.className]) !== "undefined") {
                 parts_div[item.className] = item;
                 let part_name = item.className.replace("s_div","");
-                populate_part_divs(item, category_ajax_data["category_data"].categories[category_index][part_name+"_slots"], category_ajax_data[part_name+"_data"], part_name, limiting_object[part_name], extra_info_object)
+                vessel_parts_objects[part_name] = populate_part_divs(item, category_ajax_data["category_data"].categories[category_index][part_name+"_slots"], category_ajax_data[part_name+"_data"], part_name, limiting_object[part_name], extra_info_object)
             }
         }
     });
 
+    let new_vessel = new vessel(vessel_name_input.value, new category(category_select.options[category_select.selectedIndex].value), vessel_parts_objects["weapon"],
+        vessel_parts_objects["armor"],vessel_parts_objects["shield"],vessel_parts_objects["engine"],vessel_parts_objects["warp_engine"]);
+    team_vessels[main_div.id].splice(vessel_current_index(vessel_div), 1, new_vessel);
 
     return true;
 }

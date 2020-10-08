@@ -1,8 +1,8 @@
 let ajax_data = {
     player_data: {},
     category_data: category_data,
-    armor_data: armor_data,
     shield_data: shield_data,
+    armor_data: armor_data,
     engine_data: engine_data,
     warp_engine_data: warp_engine_data,
     weapon_data: weapon_data
@@ -28,6 +28,15 @@ function load_ajax_data() {
                 try {
                     ajax_data[property] = JSON.parse(this.responseText);
                     ajax_data[property].categories = localize_object(ajax_data[property].categories,part_name+"_name");
+                    //Convert any number that is currently set as a String into a proper Number
+                    ajax_data[property].categories = ajax_data[property].categories.map(item => {
+                            for (let itemKey in item) {
+                                if (!isNaN(Number(item[itemKey]))) {
+                                    item[itemKey] = Number(item[itemKey]);
+                                }
+                            }
+                        return item;
+                    });
                 }
                 catch (err) {
                     console.log(this.responseText);
