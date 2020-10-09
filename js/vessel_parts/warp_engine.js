@@ -31,7 +31,7 @@ function warp_engine (object_index, warp_engine_ajax_data = ajax_data, object_da
 
     for (const property in object_data.categories[0]) {
         if (property !== "id") {
-            this[property] = warp_engine_ajax_data["shield_data"].categories[category_index][property];
+            this[property] = warp_engine_ajax_data["warp_engine_data"].categories[category_index][property];
         }
     }
 }

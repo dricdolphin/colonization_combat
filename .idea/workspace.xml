@@ -19,11 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="CSS updates, functional vessel's updates, bug fixes regarding typecasting">
-      <change afterPath="$PROJECT_DIR$/js/dictionaries/dictionary_pt_br.js" afterDir="false" />
+    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="Created Vessel's attributes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/localization.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/localization.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vessel_interface.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_interface.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vessel_parts/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_parts/category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vessel_parts/warp_engine.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_parts/warp_engine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vessel_interface.css" beforeDir="false" afterPath="$PROJECT_DIR$/vessel_interface.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +130,21 @@
       <option name="project" value="LOCAL" />
       <updated>1602183769631</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Created Vessel's attributes">
+      <created>1602254702018</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1602254702018</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Created Vessel's attributes">
+      <created>1602254818425</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1602254818425</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +170,8 @@
     <MESSAGE value="Refactored data aquisition process" />
     <MESSAGE value="Created all vessel's parts objects, refactored directory structure, added preliminary CSS style, refactored vessel interface creation" />
     <MESSAGE value="CSS updates, functional vessel's updates, bug fixes regarding typecasting" />
-    <option name="LAST_COMMIT_MESSAGE" value="CSS updates, functional vessel's updates, bug fixes regarding typecasting" />
+    <MESSAGE value="Created Vessel's attributes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Vessel's attributes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602005933226">

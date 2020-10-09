@@ -1,6 +1,7 @@
 { "categories" : [
-        { "id":"1", "warp_engine_name": "warp_one_drive", "power":"10", "warp_engine_level":"1"},
-        { "id":"2", "warp_engine_name": "warp_two_drive", "power":"30", "warp_engine_level":"2"},
+        { "id":"1", "warp_engine_name": "warp_one_drive", "power":"25", "warp_engine_level":"1"},
+        { "id":"2", "warp_engine_name": "warp_two_drive", "power":"35", "warp_engine_level":"2"},
         { "id":"3", "warp_engine_name": "warp_three_drive", "power":"50", "warp_engine_level":"3"},
-        { "id":"4", "warp_engine_name": "warp_four_drive", "power":"100", "warp_engine_level":"4"}
+        { "id":"4", "warp_engine_name": "warp_four_drive", "power":"70", "warp_engine_level":"4"},
+        { "id":"5", "warp_engine_name": "warp_five_drive", "power":"95", "warp_engine_level":"5"}
 ]}

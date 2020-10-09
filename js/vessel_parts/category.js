@@ -93,6 +93,7 @@ function vessel_category_change (category_select, previously_selected_index, lim
     let new_vessel = new vessel(vessel_name_input.value, new category(category_select.options[category_select.selectedIndex].value), vessel_parts_objects["weapon"],
         vessel_parts_objects["armor"],vessel_parts_objects["shield"],vessel_parts_objects["engine"],vessel_parts_objects["warp_engine"]);
     team_vessels[main_div.id].splice(vessel_current_index(vessel_div), 1, new_vessel);
+    update_vessel_attributes (vessel_div, vessel_current_index(vessel_div));
 
     return true;
 }

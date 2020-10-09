@@ -80,7 +80,7 @@ function populate_part_divs (parts_div, part_slots, parts_categories_data, part_
  */
 function new_vessel (click_event, click_link, vessel_ajax_data = ajax_data, select_limiting_object = limiting_object) {
     let team_div = click_link.parentNode;
-    //let vessel_id = team_vessels[team_div.id].length;
+    let vessel_id = team_vessels[team_div.id].length;
 
     let vessel_delete_ahref = document.createElement("a");
     vessel_delete_ahref.href = "#";
@@ -161,12 +161,14 @@ function new_vessel (click_event, click_link, vessel_ajax_data = ajax_data, sele
         }
     }
 
-    team_div.appendChild(vessel_div);
+
     //TODO -- add vessel to vessel pool
     //let new_vessel = {};
     let new_vessel = new vessel(vessel_name_input.value, new category(select_categories.options[select_categories.selectedIndex].value), vessel_parts_objects["weapon"],
         vessel_parts_objects["armor"],vessel_parts_objects["shield"],vessel_parts_objects["engine"],vessel_parts_objects["warp_engine"]);
     team_vessels[team_div.id].push(new_vessel);
+    vessel_div.appendChild(team_vessels[team_div.id][vessel_id].get_attributes_html());
+    team_div.appendChild(vessel_div);
 
     click_event.preventDefault();
     return false;
