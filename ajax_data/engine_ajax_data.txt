@@ -1,6 +1,6 @@
 { "categories" : [
         { "id":"1", "engine_name": "chemical_thrusters", "power":"10", "engine_level":"1"},
-        { "id":"2", "engine_name": "ion_thrusters", "power":"11", "engine_level":"2"},
-        { "id":"3", "engine_name": "ion_drivers", "power":"12", "engine_level":"3"},
-        { "id":"4", "engine_name": "light_impulse", "power":"13", "engine_level":"4"}
+        { "id":"2", "engine_name": "ion_thrusters", "power":"13", "engine_level":"2"},
+        { "id":"3", "engine_name": "ion_drivers", "power":"16", "engine_level":"3"},
+        { "id":"4", "engine_name": "light_impulse", "power":"19", "engine_level":"4"}
 ]}

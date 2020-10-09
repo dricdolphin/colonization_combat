@@ -2,6 +2,12 @@ dictionary['en'] = {
     main_title : "Star Ship Creator",
     new_vessel_ahref_innerText : "New Vessel",
     vessel_delete_ahref_innerText : "X",
+    combat_innertext: "START COMBAT!!!",
+    no_vessels_innertext: "There are no vessels to fight! Combat CANCELLED!",
+    wo_innertext: "One of the teams didn't show up for the fight!",
+    draw_innertext: "DRAW!!!",
+    victory_innertext: "VICTORY!!!",
+    times_up_innertext: "TIME'S UP!!!",
     vessel_name_label_innerText : "Vessel Name",
     vessel_category_label_innerText : "Category",
     weapon_name_label_innerText: "Weapon",
@@ -14,6 +20,11 @@ dictionary['en'] = {
     warp_power_innerText: "Warp Power",
     range_innerText: "Range",
     agility_innerText: "Agility",
+    HP_innerText: "HP",
+    shield_HP_innerText: "Shield HP",
+    armor_HP_innerText: "Armor HP",
+    laser_damage_innerText: "Damage vs Armor",
+    torpedo_damage_innerText: "Damage vs Shield",
     corvette : "Corvette",
     frigate : "Frigate",
     destroyer : "Destroyer",
@@ -58,5 +69,6 @@ dictionary['en'] = {
     warp_one_drive: "Warp One Drive",
     warp_two_drive: "Warp Two Drive",
     warp_three_drive: "Warp Three Drive",
-    warp_four_drive: "Warp Four Drive"
+    warp_four_drive: "Warp Four Drive",
+    warp_five_drive: "Warp Five Drive"
 };

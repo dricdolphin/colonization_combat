@@ -1,8 +1,8 @@
 { "categories" : [
         { "id":"1", "armor_name": "single_layer_titanium", "base_HP":"10", "damage_reduction":"0", "armor_level":"1"},
-        { "id":"2", "armor_name": "single_layer_titanium_alloy", "base_HP":"25", "damage_reduction":"0", "armor_level":"2"},
-        { "id":"3", "armor_name": "single_layer_duraluminum", "base_HP":"30", "damage_reduction":"0", "armor_level":"3"},
-        { "id":"4", "armor_name": "single_layer_duraluminum_alloy", "base_HP":"50", "damage_reduction":"0", "armor_level":"4"},
-        { "id":"5", "armor_name": "single_layer_duranium", "base_HP":"50", "damage_reduction":"1", "armor_level":"5"},
-        { "id":"6", "armor_name": "single_layer_tritanium", "base_HP":"50", "damage_reduction":"2", "armor_level":"6"}
+        { "id":"2", "armor_name": "single_layer_titanium_alloy", "base_HP":"15", "damage_reduction":"0", "armor_level":"2"},
+        { "id":"3", "armor_name": "single_layer_duraluminum", "base_HP":"20", "damage_reduction":"1", "armor_level":"3"},
+        { "id":"4", "armor_name": "single_layer_duraluminum_alloy", "base_HP":"30", "damage_reduction":"1", "armor_level":"4"},
+        { "id":"5", "armor_name": "single_layer_duranium", "base_HP":"40", "damage_reduction":"2", "armor_level":"5"},
+        { "id":"6", "armor_name": "single_layer_tritanium", "base_HP":"50", "damage_reduction":"3", "armor_level":"6"}
 ]}

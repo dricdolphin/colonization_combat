@@ -32,4 +32,22 @@ function load_interface () {
 
     document.body.appendChild(team_a_div);
     document.body.appendChild(team_b_div);
+
+    let do_combat_div = document.createElement("div");
+    let do_combat_link = document.createElement("a");
+    do_combat_link.href = "#";
+    do_combat_link.className = "new_vessel_ahref";
+    do_combat_link.innerText = dictionary[lang].combat_innertext;
+    do_combat_link.addEventListener("click",function (event) {
+        do_combat(event, this);
+    });
+    do_combat_div.appendChild(do_combat_link);
+
+    let combat_result_div = document.createElement("div");
+    combat_result_div.id = "combat_result";
+    combat_result_div.className = "combat_result_div";
+
+
+    document.body.appendChild(do_combat_div);
+    document.body.appendChild(combat_result_div);
 }

@@ -29,17 +29,17 @@ body {
     background-color: rgba(0, 0, 0, 0.03);
 }
 
-.team_div a:link {
+a:link {
     color: mediumblue;
     text-decoration: none;
 }
 
-.team_div a:visited {
+a:visited {
     color: mediumblue;
     text-decoration: none;
 }
 
-.team_div a:hover {
+a:hover {
     color: darkblue;
     text-decoration: none;
 }
@@ -227,6 +227,8 @@ select.vessel_part {
 .attribute_div {
     margin: 2px;
     padding: 2px;
+    font-weight: normal;
+    font-size: 12px;
 }
 
 

@@ -5,7 +5,7 @@ let limiting_object = {};
  *
  *  @class
  *  @param {string} name -- vessel name
- *  @param category -- object containing the category
+ *  @param {category} category -- object containing the category
  *  @param weapons -- object array containing the weapons
  *  @param armors -- object array containing the weapons
  *  @param shields -- object array containing the shields
@@ -32,7 +32,12 @@ function vessel (name, category, weapons, armors, shields, engines, warp_engines
         this.power = 0;
         this.warp_power = 0;
         this.range = 0;
-        this.agility = 0
+        this.agility = 0;
+        this.HP = this.category.base_HP;
+        this.armor_HP = 0;
+        this.shield_HP = 0;
+        this.laser_damage = 0;
+        this.torpedo_damage = 0;
 
         for (let categoryKey in this.category) {
             if (categoryKey.indexOf("_slots") !== -1) {
@@ -50,21 +55,69 @@ function vessel (name, category, weapons, armors, shields, engines, warp_engines
             }
         );
 
-        this.range = Math.ceil(this.warp_power/this.slots);
+        this.armor.forEach(armor => {
+                this.armor_HP = this.armor_HP + armor.base_HP;
+            }
+        );
+
+        this.shield.forEach(shield => {
+                this.shield_HP = this.shield_HP + shield.base_HP;
+            }
+        );
+
+        this.weapon.forEach(weapon => {
+                this.laser_damage = this.laser_damage + weapon.damage_vs_armor;
+                this.torpedo_damage = this.torpedo_damage + weapon.damage_vs_shields;
+            }
+
+        );
+
+        this.range = Number(Math.ceil((this.warp_power/this.slots)*10)/10).toFixed(1);
         this.agility = Math.floor((this.power/this.category.category_level)+(3-Math.pow(this.category.category_level,0.33)));
 
-        //<div class='fas fa-user-circle tooltip'><span class='tooltiptext'>MdO Disponível Sistema</span></div>
         this.attributes_html = document.createElement("div");
         this.attributes_html.className = "attributes_div";
 
-        let range_div = create_attribute_div(this, "range","far fa-road");
-        let agility_div = create_attribute_div(this, "agility","far fa-starfighter");
+        let range_div = create_attribute_div(this, "range","fas fa-gas-pump");
+        let agility_div = create_attribute_div(this, "agility","far fa-tachometer-alt");
+        let HP_div = create_attribute_div(this, "HP","fas fa-heart");
+        let shield_HP_div = create_attribute_div(this, "shield_HP","fas fa-shield");
+        let armor_HP_div = create_attribute_div(this, "armor_HP","fas fa-dice-d6");
+        let armor_damage_div = create_attribute_div(this, "laser_damage","far fa-sword-laser");
+        let shield_damage_div = create_attribute_div(this, "torpedo_damage","far fa-bahai");
 
         this.attributes_html.appendChild(range_div);
         this.attributes_html.appendChild(agility_div);
+        this.attributes_html.appendChild(HP_div);
+        if (this.shield_HP > 0) {
+            this.attributes_html.appendChild(shield_HP_div);
+        }
+        this.attributes_html.appendChild(armor_HP_div);
+        this.attributes_html.appendChild(shield_damage_div);
+        this.attributes_html.appendChild(armor_damage_div);
+
 
         return this.attributes_html;
-    }
+    };
+
+    this.evasion = function () {
+        let attack_roll = roll_3d6();
+        if (attack_roll > this.agility) {
+            return 0;
+        }
+
+        return this.agility-attack_roll;
+    };
+
+    this.process_damage = function (damage) {
+        this.shield_HP = this.shield_HP - damage.shield_damage;
+        this.armor_HP = this.armor_HP - damage.armor_damage;
+        this.HP = this.HP - damage.hull_damage;
+
+        if (this.shield_HP < 0) { this.shield_HP = 0;}
+        if (this.armor_HP < 0) { this.armor_HP = 0;}
+        if (this.HP < 0) { this.HP = 0;}
+    };
 }
 
 /***

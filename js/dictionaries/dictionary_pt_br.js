@@ -2,6 +2,12 @@ dictionary['pt_br'] = {
     main_title : "Criação de Naves",
     new_vessel_ahref_innerText : "Nova Nave",
     vessel_delete_ahref_innerText : "X",
+    combat_innertext: "COMBATE!!!",
+    draw_innertext: "EMPATE!!!",
+    victory_innertext: "VITÓRIA!!!",
+    times_up_innertext: "ACABOU O TEMPO!!!",
+    no_vessels_innertext: "Não há naves para o combate! Combate CANCELADO!",
+    wo_innertext: "Um dos times não compareceu para o combate!",
     vessel_name_label_innerText : "Nome da Nave",
     vessel_category_label_innerText : "Categoria",
     weapon_name_label_innerText: "Armas",
@@ -14,6 +20,11 @@ dictionary['pt_br'] = {
     warp_power_innerText: "Energia de Dobra",
     range_innerText: "Alcance",
     agility_innerText: "Agilidade",
+    HP_innerText: "HP",
+    shield_HP_innerText: "HP dos Escudos",
+    armor_HP_innerText: "HP da Blindagem",
+    laser_damage_innerText: "Dano vs Blindagem",
+    torpedo_damage_innerText: "Dano vs Escudos",
     corvette : "Corveta",
     frigate : "Fragata",
     destroyer : "Destroyer",
@@ -58,5 +69,6 @@ dictionary['pt_br'] = {
     warp_one_drive: "Motor de Dobra Um",
     warp_two_drive: "Motor de Dobra Dois",
     warp_three_drive: "Motor de Dobra Três",
-    warp_four_drive: "Motor de Dobra Quatro"
+    warp_four_drive: "Motor de Dobra Quatro",
+    warp_five_drive: "Motor de Dobra Cinco"
 };
