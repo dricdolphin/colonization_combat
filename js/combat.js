@@ -19,6 +19,8 @@ function do_combat(click_event, click_object) {
     let combat_result_div = document.getElementById("combat_result");
     combat_result_div.innerText = "";
 
+    let detailed_combat_div = document.createElement("div");
+
     if (team_vessels["team_a"].length === 0 && team_vessels["team_b"].length === 0) {
         combat_result_div.innerText = dictionary[lang].no_vessels_innertext;
 
@@ -60,31 +62,50 @@ function do_combat(click_event, click_object) {
             }
         });
 
-        fighters["team_a"] = shuffle(fighters["team_a"]);
-        fighters["team_b"] = shuffle(fighters["team_b"]);
-        targets["team_a"] = shuffle(targets["team_a"]);
-        targets["team_b"] = shuffle(targets["team_b"]);
+        //fighters["team_a"] = shuffle(fighters["team_a"]);
+        //fighters["team_b"] = shuffle(fighters["team_b"]);
+        //targets["team_a"] = shuffle(targets["team_a"]);
+        //targets["team_b"] = shuffle(targets["team_b"]);
 
-        team_vessels["team_a"][fighters["team_a"][0]].weapon.forEach(weapon => {
-          let damage = weapon.fire_weapon(team_vessels["team_b"][targets["team_a"][0]]);
-          team_vessels["team_b"][targets["team_a"][0]].process_damage(damage);
-        });
+        let damage_report = [];
+        damage_report["team_a"] = "";
+        damage_report["team_b"] = "";
+        fighters["team_a"].forEach(item => {
+                team_vessels["team_a"][item].weapon.forEach(weapon => {
+                    let random_target = team_vessels["team_b"][targets["team_a"][Math.floor(Math.random()*targets["team_a"].length)]];
 
-        team_vessels["team_b"][fighters["team_b"][0]].weapon.forEach(weapon => {
-            let damage = weapon.fire_weapon(team_vessels["team_a"][targets["team_b"][0]]);
-            team_vessels["team_a"][targets["team_b"][0]].process_damage(damage);
-        });
+                    let damage = weapon.fire_weapon(random_target);
+                    damage_report["team_a"] = damage_report["team_a"] + team_vessels["team_a"][item].name
+                        + dictionary[lang].fired_text + weapon.weapon_name + dictionary[lang].at_text + random_target.name
+                    + process_damage_description(damage, random_target);
 
-        let damage_report_div = document.createElement("div");
-        damage_report_div.innerText =
-            round + " A => "
-            + team_vessels["team_a"][fighters["team_a"][0]].name +": "+ team_vessels["team_a"][fighters["team_a"][0]].shield_HP
-            + " | " + team_vessels["team_a"][fighters["team_a"][0]].armor_HP + " HP: "+ team_vessels["team_a"][fighters["team_a"][0]].HP
-            + " vs B => "
-            + team_vessels["team_b"][fighters["team_b"][0]].name +": "+ team_vessels["team_b"][fighters["team_b"][0]].shield_HP
-            + " | " + team_vessels["team_b"][fighters["team_b"][0]].armor_HP + " HP: "+ team_vessels["team_b"][fighters["team_b"][0]].HP;
+                    random_target.process_damage(damage);
+                });
+            }
+        );
 
-        combat_result_div.appendChild(damage_report_div);
+
+        fighters["team_b"].forEach(item => {
+            team_vessels["team_b"][item].weapon.forEach(weapon => {
+                let random_target = team_vessels["team_a"][targets["team_b"][Math.floor(Math.random()*targets["team_b"].length)]];
+
+                let damage = weapon.fire_weapon(random_target);
+
+                damage_report["team_b"] = damage_report["team_b"] + team_vessels["team_b"][item].name
+                    + dictionary[lang].fired_text + weapon.weapon_name + dictionary[lang].at_text + random_target.name
+                    + process_damage_description(damage, random_target);
+
+                random_target.process_damage(damage);
+            });
+        }
+        );
+
+        let round_damage_report_div = document.createElement("div");
+        round_damage_report_div.innerText =
+            round + " A => " + damage_report["team_a"]
+            + " vs B => " + damage_report["team_b"];
+
+        detailed_combat_div.appendChild(round_damage_report_div);
         team_a_HP = 0;
         team_b_HP = 0;
 
@@ -101,10 +122,11 @@ function do_combat(click_event, click_object) {
         }
 
         round++;
-        if (round > 1000) {
+        if (round > 100000) {
             ships_still_remaining = false;
         }
     }
+
     let damage_report_div = document.createElement("div");
     if (team_a_HP <=0 && team_b_HP <= 0) {
         damage_report_div.innerText = dictionary[lang].draw_innertext;
@@ -113,17 +135,57 @@ function do_combat(click_event, click_object) {
     } else if (team_b_HP <=0) {
         damage_report_div.innerText = dictionary[lang].victory_innertext+" -- A!!!";
     } else {
-        damage_report_div.innerText = dictionary[lang].times_up_innertext;;
+        damage_report_div.innerText = dictionary[lang].times_up_innertext;
     }
 
+    let team_a_result_div = document.createElement("div");
+    team_a_result_div.className = "team_div";
     team_vessels["team_a"].forEach(item => {
-        item.get_attributes_html();
-    });
-    team_vessels["team_b"].forEach(item => {
+        let vessel_div = document.createElement("div");
+        vessel_div.innerText = item.name;
+        if (item.HP === 0) {
+            vessel_div.innerText = vessel_div.innerText + " - " + genderize_object("destroyed_damage_text", dictionary[lang].vessel_text);
+        } else {
+            let shield_HP_div = create_attribute_div(item, "shield_HP","fas fa-shield");
+            let armor_HP_div = create_attribute_div(item, "armor_HP","fas fa-dice-d6");
+            let HP_div = create_attribute_div(item, "HP","fas fa-heart");
+
+            vessel_div.appendChild(shield_HP_div);
+            vessel_div.appendChild(armor_HP_div);
+            vessel_div.appendChild(HP_div);
+        }
+
+        team_a_result_div.appendChild(vessel_div);
+
         item.get_attributes_html();
     });
 
+    let team_b_result_div = document.createElement("div");
+    team_b_result_div.className = "team_div";
+    team_vessels["team_b"].forEach(item => {
+        let vessel_div = document.createElement("div");
+        vessel_div.innerText = item.name;
+        if (item.HP === 0) {
+            vessel_div.innerText = vessel_div.innerText + " - " + genderize_object("destroyed_damage_text", dictionary[lang].vessel_text);
+        } else {
+            let shield_HP_div = create_attribute_div(item, "shield_HP","fas fa-shield");
+            let armor_HP_div = create_attribute_div(item, "armor_HP","fas fa-dice-d6");
+            let HP_div = create_attribute_div(item, "HP","fas fa-heart");
+
+            vessel_div.appendChild(shield_HP_div);
+            vessel_div.appendChild(armor_HP_div);
+            vessel_div.appendChild(HP_div);
+        }
+        team_b_result_div.appendChild(vessel_div);
+
+        item.get_attributes_html();
+    });
+
+
     combat_result_div.appendChild(damage_report_div);
+    combat_result_div.appendChild(team_a_result_div);
+    combat_result_div.appendChild(team_b_result_div);
+    combat_result_div.appendChild(detailed_combat_div);
 
     click_event.preventDefault();
     return false;
@@ -136,7 +198,7 @@ function do_combat(click_event, click_object) {
  * @returns {*}
  */
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {

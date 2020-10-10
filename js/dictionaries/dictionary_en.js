@@ -1,6 +1,7 @@
 dictionary['en'] = {
     main_title : "Star Ship Creator",
     new_vessel_ahref_innerText : "New Vessel",
+    vessel_text: "Vessel",
     vessel_delete_ahref_innerText : "X",
     combat_innertext: "START COMBAT!!!",
     no_vessels_innertext: "There are no vessels to fight! Combat CANCELLED!",
@@ -8,6 +9,17 @@ dictionary['en'] = {
     draw_innertext: "DRAW!!!",
     victory_innertext: "VICTORY!!!",
     times_up_innertext: "TIME'S UP!!!",
+    fired_text: " fired ",
+    at_text: " at ",
+    causing_no_damage_text: "causing no damage",
+    causing_light_damage_text: "causing light damage",
+    causing_moderate_damage_text: "causing moderate damage",
+    causing_severe_damage_text: "causing severa damage",
+    causing_heavy_damage_text: "causing heavy damage",
+    causing_destroyed_damage_text: "DESTROYING",
+    destroyed_damage_text: "DESTROYED",
+    to_the_text: "to the",
+    the_text: "the",
     vessel_name_label_innerText : "Vessel Name",
     vessel_category_label_innerText : "Category",
     weapon_name_label_innerText: "Weapon",
@@ -15,6 +27,7 @@ dictionary['en'] = {
     shield_name_label_innerText: "Shield",
     engine_name_label_innerText: "Engine",
     warp_engine_name_label_innerText: "Warp Engine",
+    hull_name_label_innerText: "Hull",
     slots_innerText: "Slots",
     power_innerText: "Power",
     warp_power_innerText: "Warp Power",
@@ -71,4 +84,8 @@ dictionary['en'] = {
     warp_three_drive: "Warp Three Drive",
     warp_four_drive: "Warp Four Drive",
     warp_five_drive: "Warp Five Drive"
+};
+
+gender_dictionary["en"] = {
+
 };

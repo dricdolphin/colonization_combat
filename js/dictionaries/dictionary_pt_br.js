@@ -1,20 +1,42 @@
 dictionary['pt_br'] = {
     main_title : "Criação de Naves",
     new_vessel_ahref_innerText : "Nova Nave",
+    vessel_text: "Nave",
     vessel_delete_ahref_innerText : "X",
     combat_innertext: "COMBATE!!!",
     draw_innertext: "EMPATE!!!",
     victory_innertext: "VITÓRIA!!!",
     times_up_innertext: "ACABOU O TEMPO!!!",
+    fired_text: " atirou ",
+    at_text: " em ",
     no_vessels_innertext: "Não há naves para o combate! Combate CANCELADO!",
     wo_innertext: "Um dos times não compareceu para o combate!",
+    causing_no_damage_text: "e não causou danos",
+    causing_light_damage_text: "causando danos leves",
+    causing_moderate_damage_text: "causando danos moderados",
+    causing_severe_damage_text: "causando danos severos",
+    causing_heavy_damage_text: "causando danos pesados",
+    causing_destroyed_damage_text: "DESTRUINDO",
+    destroyed_damage_text: {
+        "f":"DESTRUÍDA",
+        "m":"DESTRUÍDO"
+    },
+    to_the_text: {
+        "f":"à",
+        "m":"ao"
+    },
+    the_text: {
+        "f":"a",
+        "m":"o"
+    } ,
     vessel_name_label_innerText : "Nome da Nave",
     vessel_category_label_innerText : "Categoria",
-    weapon_name_label_innerText: "Armas",
+    weapon_name_label_innerText: "Arma",
     armor_name_label_innerText: "Blindagem",
-    shield_name_label_innerText: "Escudos",
-    engine_name_label_innerText: "Motores",
-    warp_engine_name_label_innerText: "Motores de Dobra",
+    shield_name_label_innerText: "Escudo",
+    engine_name_label_innerText: "Motor",
+    warp_engine_name_label_innerText: "Motor de Dobra",
+    hull_name_label_innerText: "Casco",
     slots_innerText: "Slots",
     power_innerText: "Energia",
     warp_power_innerText: "Energia de Dobra",
@@ -71,4 +93,14 @@ dictionary['pt_br'] = {
     warp_three_drive: "Motor de Dobra Três",
     warp_four_drive: "Motor de Dobra Quatro",
     warp_five_drive: "Motor de Dobra Cinco"
+};
+
+gender_dictionary["pt_br"] = {
+    weapon_name_label_innerText: "f",
+    armor_name_label_innerText: "f",
+    shield_name_label_innerText: "m",
+    engine_name_label_innerText: "m",
+    warp_engine_name_label_innerText: "m",
+    hull_name_label_innerText: "m",
+    vessel_text: "f",
 };

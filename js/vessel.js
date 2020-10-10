@@ -106,7 +106,7 @@ function vessel (name, category, weapons, armors, shields, engines, warp_engines
             return 0;
         }
 
-        return this.agility-attack_roll;
+        return Math.round((this.agility-attack_roll)/2.5);
     };
 
     this.process_damage = function (damage) {
