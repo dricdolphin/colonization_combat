@@ -19,22 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="Created Vessel's attributes">
-      <change afterPath="$PROJECT_DIR$/js/combat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="Created combat system -- ready for deployment!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_data/armor_ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_data/armor_ajax_data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_data/category_ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_data/category_ajax_data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_data/engine_ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_data/engine_ajax_data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_data/shield_ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_data/shield_ajax_data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_data/weapon_ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_data/weapon_ajax_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/combat.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/combat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/dictionaries/dictionary_en.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dictionaries/dictionary_en.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/dictionaries/dictionary_pt_br.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dictionaries/dictionary_pt_br.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/loader_interface.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/loader_interface.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/localization.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/localization.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel_parts/weapon.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_parts/weapon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vessel_interface.css" beforeDir="false" afterPath="$PROJECT_DIR$/vessel_interface.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +64,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -162,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602255248199</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Created combat system -- ready for deployment!">
+      <created>1602284028396</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1602284028396</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +190,8 @@
     <MESSAGE value="Created all vessel's parts objects, refactored directory structure, added preliminary CSS style, refactored vessel interface creation" />
     <MESSAGE value="CSS updates, functional vessel's updates, bug fixes regarding typecasting" />
     <MESSAGE value="Created Vessel's attributes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Vessel's attributes" />
+    <MESSAGE value="Created combat system -- ready for deployment!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created combat system -- ready for deployment!" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602005933226">
@@ -204,9 +206,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602264520916" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602255253187">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602284030415">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602255253187" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602284030415" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1602357685496">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602357685496" />
   </component>
 </project>

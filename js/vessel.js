@@ -106,6 +106,10 @@ function vessel (name, category, weapons, armors, shields, engines, warp_engines
             return 0;
         }
 
+        if (this.agility-attack_roll > 5) {
+            return 5;
+        }
+
         return this.agility-attack_roll;
     };
 
