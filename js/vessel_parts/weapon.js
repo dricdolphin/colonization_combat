@@ -3,7 +3,7 @@ let weapon_data = {
         {
             id: "",
             weapon_name: "",
-            damage_vs_shields: "",
+            damage_vs_shield: "",
             damage_vs_armor: "",
             base_damage: "",
             accuracy: "",
@@ -76,29 +76,22 @@ function weapon (object_index, weapon_ajax_data = ajax_data, object_data = weapo
         let target_parts = [];
         target_parts.push("shield","armor");
 
-        if (target_vessel.shield_HP > 0) {
-            let target_part = Math.floor(Math.random()*target_vessel.shield.length);
-            damage.shield_damage = this.damage_vs_shields + damage_bonus - target_vessel.shield[target_part].damage_reduction;
-            if (damage.shield_damage < 0) {damage.shield_damage = 0;}
+        let any_damage = target_parts.some(part => {
+            if (target_vessel[part+"_HP"] > 0) {
+                damage[part+"_damage"] = this["damage_vs_"+part] + damage_bonus - target_vessel[part+"_damage_reduction"];
+                if (damage[part+"_damage"] < 0) {damage[part+"_damage"] = 0;}
 
-            if (damage.shield_damage < target_vessel.shield_HP) {
-                return damage;
+                if (damage[part+"_damage"] >= target_vessel[part+"_HP"]) {
+                    damage[part+"_damage"] = target_vessel[part+"_HP"];
+                    return false;
+                }
+
+                return true;
             }
-
-            damage.shield_damage = target_vessel.shield_HP;
         }
+        );
 
-        if (target_vessel.armor_HP > 0) {
-            let target_part = Math.floor(Math.random()*target_vessel.armor.length);
-            damage.armor_damage = this.damage_vs_armor + damage_bonus - target_vessel.armor[target_part].damage_reduction;
-            if (damage.armor_damage < 0) {damage.armor_damage = 0;}
-
-            if (damage.armor_damage < target_vessel.armor_HP) {
-                return damage;
-            }
-
-            damage.armor_damage = target_vessel.armor_HP;
-        }
+        if (any_damage) {return damage;}
 
         damage.hull_damage = this.base_damage + damage_bonus;
 
@@ -120,7 +113,7 @@ function process_damage_description (damage = {shield_damage: 0, armor_damage: 0
 
     if (damage.armor_damage > 0) {
         let damage_level = Number(Math.round((damage.armor_damage/target_vessel.armor_HP)*10)/10).toFixed(1);
-        if (damage_description != "") {
+        if (damage_description !== "") {
             damage_description = damage_description + " ";
         }
         damage_description = damage_description + damage_level_description(damage_level, dictionary[lang].armor_name_label_innerText);
@@ -128,7 +121,7 @@ function process_damage_description (damage = {shield_damage: 0, armor_damage: 0
 
     if (damage.hull_damage > 0) {
         let damage_level = Number(Math.round((damage.hull_damage/target_vessel.HP)*10)/10).toFixed(1);
-        if (damage_description != "") {
+        if (damage_description !== "") {
             damage_description = damage_description + " ";
         }
         damage_description = damage_description + damage_level_description(damage_level, dictionary[lang].hull_name_label_innerText);
@@ -146,19 +139,27 @@ function process_damage_description (damage = {shield_damage: 0, armor_damage: 0
  * @returns {string}
  */
 function damage_level_description (damage_level, part_damaged) {
-    if (damage_level < 0.1) {
-        return " " + dictionary[lang].causing_light_damage_text + " " + genderize_object("to_the_text", part_damaged)
-            +  " " + part_damaged + "; ";
-    } else if (damage_level < 0.3) {
-        return " " + dictionary[lang].causing_moderate_damage_text + " " + genderize_object("to_the_text", part_damaged)
-            +  " " + part_damaged + "; ";
-    } else if (damage_level < 0.5) {
-        return " " + dictionary[lang].causing_severe_damage_text + " " + genderize_object("to_the_text", part_damaged)
-            +  " " + part_damaged + "; ";
-    } else if (damage_level >= 0.5 && damage_level < 1.0 ) {
-        return " " + dictionary[lang].causing_heavy_damage_text + " " + genderize_object("to_the_text", part_damaged)
-            +  " " + part_damaged + "; ";
+    if (damage_level < 0.2) {
+        return causing_damage_string("light", "to_the_text", part_damaged)
+    } else if (damage_level < 0.4) {
+        return causing_damage_string("moderate", "to_the_text", part_damaged)
+    } else if (damage_level < 0.7) {
+        return causing_damage_string("severe", "to_the_text", part_damaged)
+    } else if (damage_level >= 0.7 && damage_level < 1.0 ) {
+        return causing_damage_string("heavy", "to_the_text", part_damaged)
     }
-        return " " + dictionary[lang].causing_destroyed_damage_text + " " + genderize_object("the_text", part_damaged)
-            +  " " + part_damaged + "; ";
+        return causing_damage_string("destroyed", "the_text", part_damaged)
+}
+
+/***
+ * Create a string with the proper
+ *
+ * @param damage_level
+ * @param genderizing_part
+ * @param part_damaged
+ * @returns {string}
+ */
+function causing_damage_string (damage_level, genderizing_part, part_damaged) {
+    return " " + dictionary[lang]["causing_"+damage_level+"_damage_text"] + " " + genderize_object(genderizing_part, part_damaged)
+    +  " " + part_damaged + "; "
 }

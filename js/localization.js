@@ -10,10 +10,7 @@ let localization_loader = window.addEventListener("load", function () {
         lang = "en";
     }
 
-    //Localize Title
     document.title = dictionary[lang].main_title;
-
-    //TODO -- localization for all text variables
 });
 
 /***

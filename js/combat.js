@@ -122,7 +122,7 @@ function do_combat(click_event, click_object) {
         }
 
         round++;
-        if (round > 100000) {
+        if (round > 10000) {
             ships_still_remaining = false;
         }
     }

@@ -5,7 +5,7 @@ let limiting_object = {};
  *
  *  @class
  *  @param {string} name -- vessel name
- *  @param {category} category -- object containing the category
+ *  @param category -- object containing the category
  *  @param weapons -- object array containing the weapons
  *  @param armors -- object array containing the weapons
  *  @param shields -- object array containing the shields
@@ -35,7 +35,9 @@ function vessel (name, category, weapons, armors, shields, engines, warp_engines
         this.agility = 0;
         this.HP = this.category.base_HP;
         this.armor_HP = 0;
+        this.armor_damage_reduction = 0;
         this.shield_HP = 0;
+        this.shield_damage_reduction = 0;
         this.laser_damage = 0;
         this.torpedo_damage = 0;
 
@@ -57,17 +59,19 @@ function vessel (name, category, weapons, armors, shields, engines, warp_engines
 
         this.armor.forEach(armor => {
                 this.armor_HP = this.armor_HP + armor.base_HP;
+                this.armor_damage_reduction = this.armor_damage_reduction  + armor.damage_reduction;
             }
         );
 
         this.shield.forEach(shield => {
                 this.shield_HP = this.shield_HP + shield.base_HP;
+                this.shield_damage_reduction = this.shield_damage_reduction  + shield.damage_reduction;
             }
         );
 
         this.weapon.forEach(weapon => {
                 this.laser_damage = this.laser_damage + weapon.damage_vs_armor;
-                this.torpedo_damage = this.torpedo_damage + weapon.damage_vs_shields;
+                this.torpedo_damage = this.torpedo_damage + weapon.damage_vs_shield;
             }
 
         );

@@ -161,9 +161,6 @@ function new_vessel (click_event, click_link, vessel_ajax_data = ajax_data, sele
         }
     }
 
-
-    //TODO -- add vessel to vessel pool
-    //let new_vessel = {};
     let new_vessel = new vessel(vessel_name_input.value, new category(select_categories.options[select_categories.selectedIndex].value), vessel_parts_objects["weapon"],
         vessel_parts_objects["armor"],vessel_parts_objects["shield"],vessel_parts_objects["engine"],vessel_parts_objects["warp_engine"]);
     team_vessels[team_div.id].push(new_vessel);
