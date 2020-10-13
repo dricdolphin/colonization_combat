@@ -1,11 +1,18 @@
-
 /***
- * Roll 3d6 and return the value
+ * Run a number of dices and return a value
  *
+ * @param number_of_dices
+ * @param number_of_faces
  * @returns {number}
  */
-function roll_3d6() {
-    return Math.round(Math.random()*6)+Math.round(Math.random()*6)+Math.round(Math.random()*6)+3;
+
+function roll_dices(number_of_dices, number_of_faces) {
+    let dice_sum = 0;
+    for (let dices=0; dices<number_of_dices; dices++) {
+        dice_sum = dice_sum + Math.floor(Math.random()*number_of_faces)+1;
+    }
+
+    return dice_sum;
 }
 
 /***
@@ -20,6 +27,7 @@ function do_combat(click_event, click_object) {
     combat_result_div.innerText = "";
 
     let detailed_combat_div = document.createElement("div");
+    detailed_combat_div.className = "detailed_combat_div collapsed";
 
     if (team_vessels["team_a"].length === 0 && team_vessels["team_b"].length === 0) {
         combat_result_div.innerText = dictionary[lang].no_vessels_innertext;
@@ -77,6 +85,7 @@ function do_combat(click_event, click_object) {
                     let damage = weapon.fire_weapon(random_target);
                     damage_report["team_a"] = damage_report["team_a"] + team_vessels["team_a"][item].name
                         + dictionary[lang].fired_text + weapon.weapon_name + dictionary[lang].at_text + random_target.name
+                        + " (" + damage.attack_roll + " vs " + damage.difficulty + ")"
                     + process_damage_description(damage, random_target);
 
                     random_target.process_damage(damage);
@@ -93,6 +102,7 @@ function do_combat(click_event, click_object) {
 
                 damage_report["team_b"] = damage_report["team_b"] + team_vessels["team_b"][item].name
                     + dictionary[lang].fired_text + weapon.weapon_name + dictionary[lang].at_text + random_target.name
+                    + " (" + damage.attack_roll + " vs " + damage.difficulty + ")"
                     + process_damage_description(damage, random_target);
 
                 random_target.process_damage(damage);
@@ -185,7 +195,26 @@ function do_combat(click_event, click_object) {
     combat_result_div.appendChild(damage_report_div);
     combat_result_div.appendChild(team_a_result_div);
     combat_result_div.appendChild(team_b_result_div);
-    combat_result_div.appendChild(detailed_combat_div);
+
+    let hidden_details_link = document.createElement("a");
+    hidden_details_link.href = "#";
+    hidden_details_link.innerText = dictionary[lang].show_combat_details_text;
+    hidden_details_link.addEventListener("click", function(event,clicked_object = this) {
+        let detailed_combat_div = document.querySelector(".detailed_combat_div")
+        detailed_combat_div.style.maxHeight = detailed_combat_div.scrollHeight;
+        detailed_combat_div.classList.toggle("collapsed");
+
+        event.preventDefault();
+        return false;
+        }
+    );
+
+    let hidden_details_div = document.createElement("div");
+    hidden_details_div.className = "hidden_combat_details";
+    hidden_details_div.appendChild(hidden_details_link);
+    hidden_details_div.appendChild(detailed_combat_div);
+
+    combat_result_div.appendChild(hidden_details_div);
 
     click_event.preventDefault();
     return false;

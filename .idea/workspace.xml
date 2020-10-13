@@ -19,16 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="Updated combat system, updated Localization to include gendered pronouns">
+    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="Code refactoring and small tweeks to vessel's parts attributes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_data/armor_ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_data/armor_ajax_data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_data/shield_ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_data/shield_ajax_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ajax_data/weapon_ajax_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_data/weapon_ajax_data.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/combat.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/combat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/localization.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/localization.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/dictionaries/dictionary_en.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dictionaries/dictionary_en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/dictionaries/dictionary_pt_br.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dictionaries/dictionary_pt_br.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/vessel_interface.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_interface.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/vessel_parts/weapon.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vessel_parts/weapon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vessel_interface.css" beforeDir="false" afterPath="$PROJECT_DIR$/vessel_interface.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +92,9 @@
       <workItem from="1601983459861" duration="25950000" />
       <workItem from="1602066064144" duration="28630000" />
       <workItem from="1602157210471" duration="22470000" />
+      <workItem from="1602414107183" duration="605000" />
+      <workItem from="1602510797785" duration="5267000" />
+      <workItem from="1602612276964" duration="1222000" />
     </task>
     <task id="LOCAL-00001" summary="Created fully JavaScript interface and refactored vessel_interface.js code">
       <created>1601765061576</created>
@@ -178,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602363541229</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Code refactoring and small tweeks to vessel's parts attributes">
+      <created>1602375514394</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1602375514394</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +216,8 @@
     <MESSAGE value="Created Vessel's attributes" />
     <MESSAGE value="Created combat system -- ready for deployment!" />
     <MESSAGE value="Updated combat system, updated Localization to include gendered pronouns" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated combat system, updated Localization to include gendered pronouns" />
+    <MESSAGE value="Code refactoring and small tweeks to vessel's parts attributes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code refactoring and small tweeks to vessel's parts attributes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602005933226">
@@ -230,10 +240,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602264520916" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602363595880">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602375517262">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602363595880" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602375517262" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1602357685496">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

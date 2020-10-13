@@ -58,13 +58,13 @@ function vessel (name, category, weapons, armors, shields, engines, warp_engines
         );
 
         this.armor.forEach(armor => {
-                this.armor_HP = this.armor_HP + armor.base_HP;
+                this.armor_HP = this.armor_HP + armor.base_HP*(this.category.engine_slots+this.category.warp_engine_slots);
                 this.armor_damage_reduction = this.armor_damage_reduction  + armor.damage_reduction;
             }
         );
 
         this.shield.forEach(shield => {
-                this.shield_HP = this.shield_HP + shield.base_HP;
+                this.shield_HP = this.shield_HP + shield.base_HP*(this.category.engine_slots+this.category.warp_engine_slots);
                 this.shield_damage_reduction = this.shield_damage_reduction  + shield.damage_reduction;
             }
         );
@@ -105,12 +105,13 @@ function vessel (name, category, weapons, armors, shields, engines, warp_engines
     };
 
     this.evasion = function () {
-        let attack_roll = roll_3d6();
-        if (attack_roll > this.agility) {
+        let defense_roll = roll_dices(1,20) + this.agility;
+
+        if (defense_roll < 20) {
             return 0;
         }
 
-        return Math.round((this.agility-attack_roll)/2.5);
+        return Math.round((defense_roll-17)/3);
     };
 
     this.process_damage = function (damage) {
