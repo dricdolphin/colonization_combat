@@ -47,29 +47,33 @@ function weapon (object_index, weapon_ajax_data = ajax_data, object_data = weapo
      * Fire the current weapon
      *
      * @param target_vessel -- target object
+     * @param attack_bonus -- bonus to the attack
      * @returns {{armor_damage: number, hull_damage: number, shield_damage: number}}
      */
-    this.fire_weapon = function (target_vessel) {
+    this.fire_weapon = function (target_vessel, attack_bonus = 0) {
         let damage = {
             shield_damage: 0,
             armor_damage: 0,
-            hull_damage: 0
+            hull_damage: 0,
+            attack_roll: 0,
+            difficulty: 0
         }
 
-        let attack_roll = roll_3d6();
-        let difficulty = this.accuracy + target_vessel.category.enemy_accuracy_bonus - target_vessel.evasion();
+        damage.attack_roll = roll_dices(1,20) + this.accuracy + attack_bonus;
 
-        if (attack_roll > difficulty && attack_roll > 4) {
+        damage.difficulty = 10 - target_vessel.category.enemy_accuracy_bonus + target_vessel.evasion();
+
+        if (damage.attack_roll < damage.difficulty || damage.attack_roll === 1) {//Missed
             return damage;
         }
 
         let damage_bonus = 0;
 
-        if (attack_roll === 3) {
+        if (damage.attack_roll === 20) {//Critival hit
             damage_bonus = this.base_damage;
-        } else if (difficulty - attack_roll > 6) {
+        } else if (damage.attack_roll - damage.difficulty > 10) {
             damage_bonus = 2;
-        } else if (difficulty - attack_roll > 3) {
+        } else if (damage.difficulty - damage.attack_roll > 5) {
             damage_bonus = 1;
         }
 

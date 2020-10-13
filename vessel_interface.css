@@ -21,6 +21,18 @@ body {
     font-weight: bold;
 }
 
+.detailed_combat_div.collapsed {
+    overflow: hidden;
+    max-height: 0;
+    transition:max-height 0.3s ease-in-out;
+}
+
+.detailed_combat_div {
+    overflow: hidden;
+    max-height: 600px;
+    transition:max-height 0.3s ease-in-out;
+}
+
 .team_div {
     display: inline-block;
     width: 49%;
