@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="UX updates and balance tweaks">
+    <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="Refactoring combat HTML functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/combat.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/combat.js" afterDir="false" />
     </list>
@@ -88,7 +88,7 @@
       <workItem from="1602157210471" duration="22470000" />
       <workItem from="1602414107183" duration="605000" />
       <workItem from="1602510797785" duration="5267000" />
-      <workItem from="1602612276964" duration="2790000" />
+      <workItem from="1602612276964" duration="4355000" />
     </task>
     <task id="LOCAL-00001" summary="Created fully JavaScript interface and refactored vessel_interface.js code">
       <created>1601765061576</created>
@@ -202,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602614624861</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Refactoring combat HTML functions">
+      <created>1602615073277</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1602615073277</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +240,8 @@
     <MESSAGE value="Updated combat system, updated Localization to include gendered pronouns" />
     <MESSAGE value="Code refactoring and small tweeks to vessel's parts attributes" />
     <MESSAGE value="UX updates and balance tweaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="UX updates and balance tweaks" />
+    <MESSAGE value="Refactoring combat HTML functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring combat HTML functions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602005933226">
@@ -256,13 +264,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602264520916" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602614703802">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602615077322">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602614703802" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602615077322" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1602357685496">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602357685496" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602615671000">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602615671000" />
   </component>
 </project>

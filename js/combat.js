@@ -70,44 +70,23 @@ function do_combat(click_event, click_object) {
             }
         });
 
-        //fighters["team_a"] = shuffle(fighters["team_a"]);
-        //fighters["team_b"] = shuffle(fighters["team_b"]);
-        //targets["team_a"] = shuffle(targets["team_a"]);
-        //targets["team_b"] = shuffle(targets["team_b"]);
-
         let damage_report = [];
         damage_report["team_a"] = "";
         damage_report["team_b"] = "";
         fighters["team_a"].forEach(item => {
-                team_vessels["team_a"][item].weapon.forEach(weapon => {
-                    let random_target = team_vessels["team_b"][targets["team_a"][Math.floor(Math.random()*targets["team_a"].length)]];
-
-                    let damage = weapon.fire_weapon(random_target);
-                    damage_report["team_a"] = damage_report["team_a"] + team_vessels["team_a"][item].name
-                        + dictionary[lang].fired_text + weapon.weapon_name + dictionary[lang].at_text + random_target.name
-                        + " (" + damage.attack_roll + " vs " + damage.difficulty + ")"
-                    + process_damage_description(damage, random_target);
-
-                    random_target.process_damage(damage);
+                team_vessels["team_a"][item].weapon.forEach(weapon =>
+                {
+                    damage_report["team_a"] = damage_report["team_a"] + process_weapon_combat(weapon, targets, team_vessels["team_a"][item], "team_a", "team_b");
                 });
             }
         );
 
 
         fighters["team_b"].forEach(item => {
-            team_vessels["team_b"][item].weapon.forEach(weapon => {
-                let random_target = team_vessels["team_a"][targets["team_b"][Math.floor(Math.random()*targets["team_b"].length)]];
-
-                let damage = weapon.fire_weapon(random_target);
-
-                damage_report["team_b"] = damage_report["team_b"] + team_vessels["team_b"][item].name
-                    + dictionary[lang].fired_text + weapon.weapon_name + dictionary[lang].at_text + random_target.name
-                    + " (" + damage.attack_roll + " vs " + damage.difficulty + ")"
-                    + process_damage_description(damage, random_target);
-
-                random_target.process_damage(damage);
-            });
-        }
+                team_vessels["team_b"][item].weapon.forEach(weapon => {
+                    damage_report["team_b"] = damage_report["team_b"] + process_weapon_combat(weapon, targets, team_vessels["team_b"][item], "team_b", "team_a");
+                });
+            }
         );
 
         let round_damage_report_div = document.createElement("div");
@@ -150,14 +129,14 @@ function do_combat(click_event, click_object) {
 
     let team_a_result_div = document.createElement("div");
     team_a_result_div.className = "team_div";
-    team_vessels["team_a"].forEach(function (item, result_div = team_a_result_div)  {
-        vessel_combat_results_html(vessel, result_div);
+    team_vessels["team_a"].forEach(function (vessel)  {
+        team_a_result_div.appendChild(vessel_combat_results_html(vessel));
     });
 
     let team_b_result_div = document.createElement("div");
     team_b_result_div.className = "team_div";
-    team_vessels["team_b"].forEach(function (item, result_div = team_b_result_div)  {
-        vessel_combat_results_html(vessel, result_div);
+    team_vessels["team_b"].forEach(function (vessel)  {
+        team_b_result_div.appendChild(vessel_combat_results_html(vessel));
     });
 
     combat_result_div.appendChild(damage_report_div);
@@ -225,9 +204,10 @@ function shuffle(array) {
  * Return the combat result of a vessel
  *
  * @param vessel -- vessel being verified
- * @param team_result_div -- div where the vessel will appear
+ *
+ * @return -- div with the vessel result
  */
-function vessel_combat_results_html(vessel, team_result_div) {
+function vessel_combat_results_html(vessel) {
     let vessel_div = document.createElement("div");
     vessel_div.innerText = vessel.name;
     if (vessel.HP === 0) {
@@ -242,7 +222,19 @@ function vessel_combat_results_html(vessel, team_result_div) {
         vessel_div.appendChild(HP_div);
     }
 
-    team_result_div.appendChild(vessel_div);
-
     vessel.get_attributes_html();
+    return vessel_div;
+}
+
+function process_weapon_combat (weapon, targets, attacking_vessel, attacking_team, target_team) {
+    let random_target = team_vessels[attacking_team][targets[target_team][Math.floor(Math.random()*targets[target_team].length)]];
+
+    let damage = weapon.fire_weapon(random_target);
+
+    random_target.process_damage(damage);
+
+    return attacking_vessel.name
+        + dictionary[lang].fired_text + weapon.weapon_name + dictionary[lang].at_text + random_target.name
+        + " (" + damage.attack_roll + " vs " + damage.difficulty + ")"
+        + process_damage_description(damage, random_target);
 }
