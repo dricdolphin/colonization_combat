@@ -22,7 +22,6 @@
     <list default="true" id="f5095ab6-d621-4dc3-9ae8-6578dd01b680" name="Default Changelist" comment="UX updates and balance tweaks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/combat.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/combat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vessel_interface.css" beforeDir="false" afterPath="$PROJECT_DIR$/vessel_interface.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +88,7 @@
       <workItem from="1602157210471" duration="22470000" />
       <workItem from="1602414107183" duration="605000" />
       <workItem from="1602510797785" duration="5267000" />
-      <workItem from="1602612276964" duration="2296000" />
+      <workItem from="1602612276964" duration="2790000" />
     </task>
     <task id="LOCAL-00001" summary="Created fully JavaScript interface and refactored vessel_interface.js code">
       <created>1601765061576</created>
@@ -189,7 +188,21 @@
       <option name="project" value="LOCAL" />
       <updated>1602613564673</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="UX updates and balance tweaks">
+      <created>1602614610189</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1602614610189</updated>
+    </task>
+    <task id="LOCAL-00016" summary="UX updates and balance tweaks">
+      <created>1602614624861</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1602614624861</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,18 +248,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="86" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602363579251" />
-    <state x="598" y="281" key="MultipleFileMergeDialog" timestamp="1602363585962">
+    <state x="598" y="281" key="MultipleFileMergeDialog" timestamp="1602614648199">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602363585962" />
+    <state x="598" y="281" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602614648199" />
     <state x="461" y="164" key="SettingsEditor" timestamp="1602264520916">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602264520916" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602613570874">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602614703802">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602613570874" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602614703802" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1602357685496">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

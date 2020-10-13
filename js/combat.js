@@ -150,47 +150,15 @@ function do_combat(click_event, click_object) {
 
     let team_a_result_div = document.createElement("div");
     team_a_result_div.className = "team_div";
-    team_vessels["team_a"].forEach(item => {
-        let vessel_div = document.createElement("div");
-        vessel_div.innerText = item.name;
-        if (item.HP === 0) {
-            vessel_div.innerText = vessel_div.innerText + " - " + genderize_object("destroyed_damage_text", dictionary[lang].vessel_text);
-        } else {
-            let shield_HP_div = create_attribute_div(item, "shield_HP","fas fa-shield");
-            let armor_HP_div = create_attribute_div(item, "armor_HP","fas fa-dice-d6");
-            let HP_div = create_attribute_div(item, "HP","fas fa-heart");
-
-            vessel_div.appendChild(shield_HP_div);
-            vessel_div.appendChild(armor_HP_div);
-            vessel_div.appendChild(HP_div);
-        }
-
-        team_a_result_div.appendChild(vessel_div);
-
-        item.get_attributes_html();
+    team_vessels["team_a"].forEach(function (item, result_div = team_a_result_div)  {
+        vessel_combat_results_html(vessel, result_div);
     });
 
     let team_b_result_div = document.createElement("div");
     team_b_result_div.className = "team_div";
-    team_vessels["team_b"].forEach(item => {
-        let vessel_div = document.createElement("div");
-        vessel_div.innerText = item.name;
-        if (item.HP === 0) {
-            vessel_div.innerText = vessel_div.innerText + " - " + genderize_object("destroyed_damage_text", dictionary[lang].vessel_text);
-        } else {
-            let shield_HP_div = create_attribute_div(item, "shield_HP","fas fa-shield");
-            let armor_HP_div = create_attribute_div(item, "armor_HP","fas fa-dice-d6");
-            let HP_div = create_attribute_div(item, "HP","fas fa-heart");
-
-            vessel_div.appendChild(shield_HP_div);
-            vessel_div.appendChild(armor_HP_div);
-            vessel_div.appendChild(HP_div);
-        }
-        team_b_result_div.appendChild(vessel_div);
-
-        item.get_attributes_html();
+    team_vessels["team_b"].forEach(function (item, result_div = team_b_result_div)  {
+        vessel_combat_results_html(vessel, result_div);
     });
-
 
     combat_result_div.appendChild(damage_report_div);
     combat_result_div.appendChild(team_a_result_div);
@@ -199,7 +167,7 @@ function do_combat(click_event, click_object) {
     let hidden_details_link = document.createElement("a");
     hidden_details_link.href = "#";
     hidden_details_link.innerText = dictionary[lang].show_combat_details_text;
-    hidden_details_link.addEventListener("click", function(event,clicked_object = this) {
+    hidden_details_link.addEventListener("click", function(event) {
         let detailed_combat_div = document.querySelector(".detailed_combat_div")
         detailed_combat_div.style.overflow = "hidden";
         detailed_combat_div.classList.toggle("collapsed");
@@ -207,7 +175,7 @@ function do_combat(click_event, click_object) {
         if (!detailed_combat_div.classList.contains("collapsed")) {
             let timer = window.setTimeout(function () {
                     detailed_combat_div.style.overflow = "visible";
-                    window.clearTimeout(this);
+                    window.clearTimeout(timer);
                 }, 400
             );
         }
@@ -251,4 +219,30 @@ function shuffle(array) {
     }
 
     return array;
+}
+
+/***
+ * Return the combat result of a vessel
+ *
+ * @param vessel -- vessel being verified
+ * @param team_result_div -- div where the vessel will appear
+ */
+function vessel_combat_results_html(vessel, team_result_div) {
+    let vessel_div = document.createElement("div");
+    vessel_div.innerText = vessel.name;
+    if (vessel.HP === 0) {
+        vessel_div.innerText = vessel_div.innerText + " - " + genderize_object("destroyed_damage_text", dictionary[lang].vessel_text);
+    } else {
+        let shield_HP_div = create_attribute_div(vessel, "shield_HP","fas fa-shield");
+        let armor_HP_div = create_attribute_div(vessel, "armor_HP","fas fa-dice-d6");
+        let HP_div = create_attribute_div(vessel, "HP","fas fa-heart");
+
+        vessel_div.appendChild(shield_HP_div);
+        vessel_div.appendChild(armor_HP_div);
+        vessel_div.appendChild(HP_div);
+    }
+
+    team_result_div.appendChild(vessel_div);
+
+    vessel.get_attributes_html();
 }
