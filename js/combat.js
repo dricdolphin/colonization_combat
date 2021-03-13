@@ -47,14 +47,17 @@ function do_combat(click_event, click_object) {
     let team_b_HP = 0;
 
     while (ships_still_remaining) {
+        let teams = ["team_a", "team_b"];
+
         let targets = [];
-        targets["team_a"] = [];
-        targets["team_b"] = [];
-
         let fighters = [];
-        fighters["team_a"] = [];
-        fighters["team_b"] = [];
-
+        let damage_report = [];
+        teams.forEach(item => {
+            targets[item] = [];
+            fighters[item] = [];
+            damage_report[item] = "";
+            }
+        );
 
         team_vessels["team_a"].forEach(function (item, index) {
             if (item.HP > 0) {
@@ -70,9 +73,6 @@ function do_combat(click_event, click_object) {
             }
         });
 
-        let damage_report = [];
-        damage_report["team_a"] = "";
-        damage_report["team_b"] = "";
         fighters["team_a"].forEach(item => {
                 team_vessels["team_a"][item].weapon.forEach(weapon =>
                 {
@@ -80,7 +80,6 @@ function do_combat(click_event, click_object) {
                 });
             }
         );
-
 
         fighters["team_b"].forEach(item => {
                 team_vessels["team_b"][item].weapon.forEach(weapon => {

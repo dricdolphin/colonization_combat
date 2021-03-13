@@ -88,7 +88,14 @@
       <workItem from="1602157210471" duration="22470000" />
       <workItem from="1602414107183" duration="605000" />
       <workItem from="1602510797785" duration="5267000" />
-      <workItem from="1602612276964" duration="4355000" />
+      <workItem from="1602612276964" duration="5940000" />
+      <workItem from="1603639522472" duration="599000" />
+      <workItem from="1603974071507" duration="5000" />
+      <workItem from="1603994153366" duration="68000" />
+      <workItem from="1604003404884" duration="599000" />
+      <workItem from="1604007463159" duration="8000" />
+      <workItem from="1604344891198" duration="12000" />
+      <workItem from="1605702480241" duration="31000" />
     </task>
     <task id="LOCAL-00001" summary="Created fully JavaScript interface and refactored vessel_interface.js code">
       <created>1601765061576</created>
@@ -209,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602615073277</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Refactoring combat HTML functions">
+      <created>1602616689731</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1602616689731</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,10 +278,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602264520916" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602615077322">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602616693992">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602615077322" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602616693992" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1602357685496">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
